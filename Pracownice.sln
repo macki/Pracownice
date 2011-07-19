@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pracownice", "Pracownice\Pracownice.csproj", "{0A596EB4-9508-4F1D-AB68-15CA2B7FAAFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pracownice.Tests", "Pracownice.Tests\Pracownice.Tests.csproj", "{7D5EF2B8-32A3-4F26-914F-CC9E88B58995}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A596EB4-9508-4F1D-AB68-15CA2B7FAAFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A596EB4-9508-4F1D-AB68-15CA2B7FAAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A596EB4-9508-4F1D-AB68-15CA2B7FAAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A596EB4-9508-4F1D-AB68-15CA2B7FAAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5EF2B8-32A3-4F26-914F-CC9E88B58995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5EF2B8-32A3-4F26-914F-CC9E88B58995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5EF2B8-32A3-4F26-914F-CC9E88B58995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5EF2B8-32A3-4F26-914F-CC9E88B58995}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
