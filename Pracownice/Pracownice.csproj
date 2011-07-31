@@ -73,6 +73,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Logo\kobitaLogo.png" />
+    <Content Include="Content\Images\Logo\logo.png" />
+    <Content Include="Content\Images\TopPanel\flagiCzarne.png" />
+    <Content Include="Content\Images\TopPanel\top.png" />
+    <Content Include="Content\Images\TopPanel\zaloguj.png" />
+    <Content Include="Content\Images\TopPanel\zolte.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

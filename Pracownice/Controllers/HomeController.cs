@@ -12,7 +12,25 @@ namespace Pracownice.Controllers
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
-    
+
+            var list = new List<SelectListItem>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                var item = new SelectListItem();
+                item.Text = "cos" + i;
+
+                list.Add(item);
+            }
+
+
+            IEnumerable<SelectListItem> items = list;
+
+            ViewBag.items = items;
+
+            
+            
+                 
             return View();
         }
 
