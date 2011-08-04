@@ -95,6 +95,11 @@
 
             @Html.ListBox("asd", (IEnumerable<SelectListItem>)ViewBag.items, new  {  @size = 5, @multiple = false });
 
+
+            @Html.Partial("slider");
+         
+
+
         <section id="main">
             @RenderBody();
         </section>
