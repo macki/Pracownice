@@ -544,10 +544,10 @@
 		position: relative;
     	height: 100%;
     	font-size: 1px;
-    	/*background-image: url(images/drop-down-horizontal.png);
+        background-image: url(images/drop-down-horizontal.png);
 	    background-position: 0px -216px;
     	background-repeat: repeat-x;
-	    background-color: #d0dee5;*/
+	    background-color: #d0dee5;
 	}
 	
 	* HTML .ob_iLboICB
@@ -564,6 +564,7 @@
     	top: 0px;
     	left: 0px;
 		background-image: url(images/drop-down-vertical.png);
+		background-repeat: repeat-x;
 		background-position: 0px 0px;
 		overflow: hidden;
 		z-index: 5;
