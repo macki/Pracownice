@@ -234,14 +234,36 @@ header, #header {
     display:block;
 }
 
+/* LeftPanel
+----------------------------------------------------------*/
+#leftPanel
+{
+    display:inline;
+    position:absolute;
+    margin-top:100px;
+    height:auto;
+    z-index:1;   
+}
+
+#sliderTlo
+{
+    width:auto;
+    height:auto;
+    display:inline;
+    position:absolute;
+}
+
+#sliderFull
+{
+    margin-top:-355px; 
+    margin-left:5px;   
+    position:absolute;
+
+}
+
 
 /* Sidebar
 ----------------------------------------------------------*/
-
-
-
-
-
 #main 
 {
     position:relative;
