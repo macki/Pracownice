@@ -10,101 +10,22 @@
 </head>
 <body>
     <div class="page">
-          <div class="top">
-                <div class="logo">
-                   <img src="../../Content/Images/Logo/logo.png" />
-                </div>
-                
-                <div class="kobitaLogo">
-                    <img src="../../Content/Images/Logo/kobitaLogo.png" />
-                </div>
-
-                <div class="panelPrawaStrona">
-
-                        <div class="loginRegister">
-                            @using (Html.BeginForm())
-                            {
-                                <div class ="napisZarejstruj">
-                                    Zarestruj sie
-                                </div>
-                                
-                                <div class="editor-field">
-                                    @Html.TextBox("macki")
-                                </div>
-
-                                <div class="editor-field">
-                                        @Html.TextBox("macki2")  
-                                </div>
-                                
-
-                                <div class="zaloguj">
-                                    <img src="../../Content/Images/TopPanel/zaloguj.png"  />
-                                </div>
-                            }
-                        </div>
-
-                            <div class="flagi">
-                                <img src="../../Content/Images/TopPanel/flagiCzarne.png"" />
-                            </div>
-
-                            <div class="napisGora">
-                                <div class="napisPanowie">
-                                   Panowie
-                                </div>
-
-                                <div class="napisPanie">
-                                    Panie
-                                </div>
-
-                                <div class="napisKluby">
-                                    Kluby
-                                </div>
-                                    
-                            </div>
-
-                           
-                           <div class="napisSzukajOgloszenia">
-                             Szukaj Ogloszenia
-                           </div>
-
-                           <div class="napisKontaktZnami">
-                            Kontakt z Nami
-                           </div>
-
-                           <div class="napisOfertyPracy">
-                            Oferty Pracy
-                           </div>
-
-                           <div class="napisDodajNowyAnons">
-                            Dodaj Nowy Anons
-                           </div>
-
-                </div>
-            </div>
-
-            <br /><br /><br /><br /><br /><br />
-
-            @foreach(var item in ViewBag.items)
-            {
-                SelectListItem itemT =  (SelectListItem)item;
-
-                @itemT.Text;
-            }
-
-            
-
-            @Html.ListBox("asd", (IEnumerable<SelectListItem>)ViewBag.items, new  {  @size = 5, @multiple = false });
+          
+           @Html.Partial("_TopPanel")
+           @Html.Partial("_LeftPanel")
 
 
-            @Html.Partial("slider");
-         
 
-
+        <div style = " margin-top: 500px; display:block">
+          
         <section id="main">
             @RenderBody();
         </section>
-        <footer>
-        </footer>
+
+        </div>
+
     </div>
+
+
 </body>
 </html>
