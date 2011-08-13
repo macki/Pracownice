@@ -10,21 +10,28 @@
 </head>
 
 <body>
-    <div class="page">
+
+
+@*<div class="Background">
+    <img src="../../Content/Images/backgroundLeft.jpg"/ style="display:inline; position:absolute; margin-left:-901px">
+    <img src="../../Content/Images/backgroundRight.jpg"/ style="display:inline; position:absolute;">
+</div>*@
+
+        <div class="page">
+               @Html.Partial("_TopPanel")
+               @Html.Partial("_LeftPanel")
+
+
+            <div style = "display:block ">
           
-           @Html.Partial("_TopPanel")
-           @Html.Partial("_LeftPanel")
+                <section id="main">
+                    @RenderBody();
+                </section>
 
-
-        <div style = "display:block ">
-          
-            <section id="main">
-                @RenderBody();
-            </section>
-
+            </div>
         </div>
 
-    </div>
+
 
 </body>
 
