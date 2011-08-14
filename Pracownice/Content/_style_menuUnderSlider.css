@@ -1,0 +1,55 @@
+﻿
+.MenuUnderSlider
+{
+    display:block;
+    position:relative;
+    height:auto;
+    width:auto;
+    z-index:100;
+
+}
+
+
+.title
+{
+}
+
+
+#menu2 {
+	width:238px;
+}
+#menu .zakladka {
+	background:url(images/bg_menu.jpg) top left repeat-x; 
+	font:1.0em Verdana, Geneva, sans-serif;
+	color:#ed4949;
+	padding:2px 12px 0px;
+	margin:0px;
+	float:left;
+	width:230px;
+	height:29px;  
+}
+ 
+#menu ul {
+	background:#690305;
+	padding:3px 7px 5px;
+	float:left;
+	width:100%;
+	margin:-3px 0px 0px 0px;
+ 
+}
+#menu ul li {
+	background:#930306;
+	border-bottom:solid 1px #b10e0e; 
+	list-style:none;
+	display:block;;
+	height:14px;
+	width:100%;
+	padding:3px 2px;
+	margin-bottom:2px;
+}
+#menu ul li a {
+	display:block;
+	font-size:0.8em;
+	color:#dad5d5;
+	text-decoration:none;
+}

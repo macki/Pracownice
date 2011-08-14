@@ -291,11 +291,13 @@ header, #header {
 {
     position:relative;
     margin-top: 95px;
+    margin-left:200px;
+    width:690px;
     padding: 30px 30px 15px 30px;
     background-color: #fff;
-    border-radius: 4px 0 0 0;
-    -webkit-border-radius: 4px 0 0 0;
-    -moz-border-radius: 4px 0 0 0;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
 }
 
 footer, 
