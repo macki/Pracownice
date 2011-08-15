@@ -16,28 +16,27 @@
 </head>
 
 <body>
-
-
-@*<div class="Background">
-    <img src="../../Content/Images/backgroundLeft.jpg"/ style="display:inline; position:absolute; margin-left:-901px">
-    <img src="../../Content/Images/backgroundRight.jpg"/ style="display:inline; position:absolute;">
-</div>*@
-
-        <div class="page">
-               @Html.Partial("_TopPanel")
-               @Html.Partial("_LeftPanel")
-
-
-            <div style = "display:block ">
-          
-                <section id="main">
-                    @RenderBody();
-                </section>
-
-            </div>
+    <div class="page">
+        <div id = "topContent">
+             @Html.Partial("_TopPanel")
         </div>
 
+        <div id = "mainContent">
+            @Html.Partial("_LeftPanel")
 
+            <section id="main">
+                @RenderBody();
+            </section>
+
+        </div>
+
+        <div id = "footerContent">
+           @Html.Partial("_FooterPanel")
+        </div>
+
+    </div>
+
+     
 
 </body>
 

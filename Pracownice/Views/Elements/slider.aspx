@@ -3,7 +3,7 @@
 <%@ Register assembly="obout_ListBox" namespace="Obout.ListBox"tagprefix="cc1" %>
     <form id="form1" runat="server">
         <cc1:ListBox ID="ListBox1" runat="server" 
-            style="top: 0px; left: -0px;" 
+            style="top: 0px; left: -0px; display:block" 
             Font-Names="Andalus" FolderStyle="../../Content/skins/plain" 
             Font-Size="Large"  Height="285px" Width="170px" >
             <cc1:ListBoxItem ID="ListBoxItem1" runat="server" Text="Andrychów" Font-Size=Small/>

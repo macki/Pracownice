@@ -15,7 +15,8 @@ body {
     margin-left:-140px;
     text-align:center;
     background-color:Black;
-  
+    height:auto;
+    display:block;
 }
 
 
@@ -69,6 +70,26 @@ section {
 
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
+#mainContent
+{
+    position:relative;
+    float:left;
+    overflow:auto;
+    height:auto;
+    display:block;
+}
+
+#footerContent
+{
+    position:relative;
+    display:block;
+     float:left;
+}
+
+
+
+
+
 
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
@@ -79,7 +100,9 @@ page width. Or, you can specify an exact pixel width. */
 	width: 50em;
 	text-align: left;
     top:-20px;
-   
+    height:auto;
+    display:block;
+    height:auto;
 }
 
 header, #header {
@@ -93,6 +116,7 @@ header, #header {
     background: url(Images/TopPanel/top.png) ;
     margin-top:0px;
     height:200px;
+    display:block;
 }
 
 .logo
@@ -260,28 +284,25 @@ header, #header {
 
 /* LeftPanel
 ----------------------------------------------------------*/
-#leftPanel
+.leftPanel
 {
-    display:inline;
-    position:absolute;
-    height:auto;
-    z-index:1;   
-}
-
-#sliderTlo
-{
+    position:relative;
+    display:block;
+    z-index:1; 
     width:auto;
     height:auto;
-    display:inline;
-    position:absolute;
+    overflow: visible;
 }
 
-#sliderFull
+
+
+.sliderFull
 {
+    position:relative;
     margin-top:-355px; 
     margin-left:5px;   
-    position:absolute;
-
+    display:block;
+    height:400px;
 }
 
 
@@ -290,7 +311,7 @@ header, #header {
 #main 
 {
     position:relative;
-    margin-top: 95px;
+    margin-top: -350px;
     margin-left:200px;
     width:690px;
     padding: 30px 30px 15px 30px;
@@ -298,6 +319,8 @@ header, #header {
     border-radius: 4px 4px 4px 4px;
     -webkit-border-radius: 4px 4px 4px 4px;
     -moz-border-radius: 4px 4px 4px 4px;
+    height:100px;
+
 }
 
 footer, 
@@ -313,6 +336,22 @@ footer,
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
 }
+
+/* STOPKA
+------------------------------------------------------------*/
+.stopka
+{
+     background: url(Images/stopaTlo.png);
+     background-position:center;
+     text-align:center;
+     width:984px;
+     display:block;
+     position:relative;
+     margin-top:20px;
+     height:20px;
+}
+
+
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -532,4 +571,5 @@ input[type=text], input[type=password], select
 .text-box.multi-line {
     height: 6.5em;
 }
+
 

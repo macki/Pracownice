@@ -1,4 +1,13 @@
-﻿
+﻿.menu
+{
+    overflow:auto;
+    height:auto;
+    display:block; 
+    
+    
+}
+
+
 .MenuUnderSlider
 {
     display:block;
@@ -6,7 +15,7 @@
     height:auto;
     width:auto;
     z-index:100;
-    margin-top:-35px;
+    margin-top:-75px;
     margin-left:-10px;
 
 }
@@ -39,6 +48,7 @@
 	height:29px; 
 	margin:0px;
 	float:left; 
+	cursor: pointer;
 }
 
 
