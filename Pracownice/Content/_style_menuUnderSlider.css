@@ -1,12 +1,4 @@
-﻿.menu
-{
-    overflow:auto;
-    height:auto;
-    display:block; 
-    
-    
-}
-
+﻿
 
 .MenuUnderSlider
 {
@@ -17,7 +9,6 @@
     z-index:100;
     margin-top:-75px;
     margin-left:-10px;
-
 }
 
 
@@ -38,6 +29,7 @@
 #menu {
 	width:238px;
 }
+
 #menu .zakladka {
 	font-size:13px;
 	font-family:Myriad Pro;

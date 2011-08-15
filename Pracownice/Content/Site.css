@@ -15,7 +15,6 @@ body {
     margin-left:-140px;
     text-align:center;
     background-color:Black;
-    height:auto;
     display:block;
 }
 
@@ -73,9 +72,6 @@ section {
 #mainContent
 {
     position:relative;
-    float:left;
-    overflow:auto;
-    height:auto;
     display:block;
 }
 
@@ -83,7 +79,7 @@ section {
 {
     position:relative;
     display:block;
-     float:left;
+    float:left;
 }
 
 
@@ -100,9 +96,7 @@ page width. Or, you can specify an exact pixel width. */
 	width: 50em;
 	text-align: left;
     top:-20px;
-    height:auto;
-    display:block;
-    height:auto;
+
 }
 
 header, #header {
@@ -286,12 +280,14 @@ header, #header {
 ----------------------------------------------------------*/
 .leftPanel
 {
-    position:relative;
+    
     display:block;
     z-index:1; 
+    /*
+    position:relative;
     width:auto;
     height:auto;
-    overflow: visible;
+    */
 }
 
 
@@ -323,19 +319,7 @@ header, #header {
 
 }
 
-footer, 
-#footer {
-    background-color: #fff;
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0 0 30px 0;
-    font-size: .9em;
-    border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
-}
+
 
 /* STOPKA
 ------------------------------------------------------------*/
@@ -343,14 +327,36 @@ footer,
 {
      background: url(Images/stopaTlo.png);
      background-position:center;
+     background-repeat:repeat-y;
      text-align:center;
      width:984px;
      display:block;
      position:relative;
      margin-top:20px;
-     height:20px;
+     height:30px;
 }
 
+a:link {
+    text-decoration:none;
+    color: #6f6f6f;
+}
+
+a:visited 
+{
+    text-decoration:none;
+    color: #6f6f6f;
+}
+
+a:active {
+
+    color: #6f6f6f;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+   
+}
 
 
 /* TAB MENU   
