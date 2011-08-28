@@ -291,7 +291,8 @@ header, #header {
 }
 
 
-
+/* Sidebar
+----------------------------------------------------------*/
 .sliderFull
 {
     position:relative;
@@ -302,23 +303,75 @@ header, #header {
 }
 
 
-/* Sidebar
+/* Main Content
 ----------------------------------------------------------*/
 #main 
 {
     position:relative;
-    margin-top: -350px;
+    margin-top: -400px;
     margin-left:200px;
-    width:690px;
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
+    width:750px; 
     border-radius: 4px 4px 4px 4px;
     -webkit-border-radius: 4px 4px 4px 4px;
     -moz-border-radius: 4px 4px 4px 4px;
-    height:100px;
-
+    min-height:100px;  
 }
 
+.RamkaFotka
+{
+    position:relative;
+    display:inline-block;
+    margin-left:10px;
+    background: url(/Content/Images/ramka.png) no-repeat;
+    width:135px;
+    height:203px;
+}
+
+.Fotka
+{
+    position:relative;
+    display:inline-block;
+    width:auto;
+    height:auto;
+    max-width:95px;
+    max-height:170px;
+    overflow:hidden;  
+    padding: 10px 15px 20px 15px;
+}
+
+/* TODO:: Zastanowic sie nad wielkoscia zdjec
+------------------------------------------------------------*/
+.FotkaResize {
+width :  106px;
+height : 140px;
+}
+
+.FotkaImie
+{
+    font-family:Myriad Pro;
+    font-size:14px; 
+    width:100px;
+    height:20px;
+    
+    color: #dbb245 ;   
+    display:block;
+    position:relative;
+    text-align:center;
+    max-height:20px;  
+}
+
+.FotkaMiasto
+{
+    font-family:Myriad Pro;
+    font-size:12px; 
+    text-align:center;
+    width:100px;
+    height:auto;
+    color: #FFFFFF ;   
+    display:block;
+    position:relative;   
+    
+}
 
 
 /* STOPKA

@@ -1,8 +1,40 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model List<Pracownice.Models.pracownica.Pracownica>
+
+@{
+    ViewBag.Title = "Pracownice.pl";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+ @foreach (var item in Model)
+ {
+     // <li><a href="@Url.Action("Details", "Store",
+     //        new { id = album.AlbumId })">
+     // 
+        <div class="RamkaFotka">
+            <div class="Fotka">
+                 <img alt="@item.Name" src="@item.MainPhotoUrl" class="FotkaResize" />
+
+                @{
+                    string name = item.Name;
+
+                    if (name.Length > 13)
+                    {
+                        name = name.Substring(0, 13);
+                        name = name + "...";
+
+                    }
+                     
+                 }
+                 
+
+                 <div class="FotkaImie">
+                    @name
+                 </div>
+
+                 <div class="FotkaMiasto">
+                    @item.City
+                 </div>
+
+           </div>
+        </div>
+     //</li>
+    }

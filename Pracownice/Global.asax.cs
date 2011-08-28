@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using System.Data.Entity;            // Database.SetInitialize
+using Pracownice.Models.pracownica;             // MovieInitializer
+using Pracownice.Models;
+ 
 namespace Pracownice
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -31,6 +35,8 @@ namespace Pracownice
 
         protected void Application_Start()
         {
+            System.Data.Entity.Database.SetInitializer(new SampleData());
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
