@@ -1,4 +1,4 @@
-﻿@model List<Pracownice.Models.pracownica.Pracownica>
+﻿@model List<Pracownice.Models.Pracownica>
 
 @{
     ViewBag.Title = "Pracownice.pl";
@@ -10,7 +10,7 @@
      //        new { id = album.AlbumId })">
      // 
         <div class="RamkaFotka">
-            <div class="Fotka">
+            <div class="Fotka"> 
                  <img alt="@item.Name" src="@item.MainPhotoUrl" class="FotkaResize" />
 
                 @{
@@ -25,9 +25,13 @@
                      
                  }
                  
-
                  <div class="FotkaImie">
-                    @name
+                      <a href="@Url.Action("", "Pracownica", new { id = item.PracownicaID })"
+                       style="color:#dbb245;
+                             
+                              font-weight:normal;">
+
+                         @name</a>   
                  </div>
 
                  <div class="FotkaMiasto">

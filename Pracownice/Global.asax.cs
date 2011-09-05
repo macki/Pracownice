@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 using System.Data.Entity;            // Database.SetInitialize
-using Pracownice.Models.pracownica;             // MovieInitializer
-using Pracownice.Models;
+using Pracownice.Models;            // MovieInitializer
+
  
 namespace Pracownice
 {

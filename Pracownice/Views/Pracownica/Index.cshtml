@@ -1,9 +1,94 @@
-﻿@model Pracownice.Models.pracownica.Pracownica
+﻿@model Pracownice.Models.Pracownica
+
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pracownica";
 }
 
+  <link rel="stylesheet" type="text/css" href="../../Content/jQueryGallery/jquery.ad-gallery.css">
+  <script type="text/javascript" src="../../Content/jQueryGallery/jquery.ad-gallery.js"></script>
+  <script type="text/javascript">
+      $(function () {
+          $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
+          $('img.image1').data('ad-title', 'Title through $.data');
+          $('img.image4').data('ad-desc', 'This image is wider than the wrapper, so it has been scaled down');
+          $('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');
+          var galleries = $('.ad-gallery').adGallery();
+          $('#switch-effect').change(
+      function () {
+          galleries[0].settings.effect = $(this).val();
+          return false;
+      }
+    );
+          $('#toggle-slideshow').click(
+      function () {
+          galleries[0].slideshow.toggle();
+          return false;
+      }
+    );
+          $('#toggle-description').click(
+      function () {
+          if (!galleries[0].settings.description_wrapper) {
+              galleries[0].settings.description_wrapper = $('#descriptions');
+          } else {
+              galleries[0].settings.description_wrapper = false;
+          }
+          return false;
+      }
+    );
+      });
+  </script>
 
+  <div class="titlePracownica">
+    @Model.Name
+  </div>
 
-<h2>Pracownica</h2>
+  <div class="opisNaglowekPracownica" >
+    @Model.HeaderDescription
+  </div>
+
+  <div class="GaleriaPracownica">
+        <div id="gallery" class="ad-gallery">
+          <div class="ad-image-wrapper">
+          </div>
+          <div class="ad-nav" >
+            <div class="ad-thumbs" style="text-align:center;" >
+              <ul class="ad-thumb-list">
+
+              @foreach(var item in Model.Files  )
+              {
+                <li>
+                  <a href=@item.Url>
+                    <img src=@item.thumbUrl class="image0">
+                  </a>
+                </li>
+              }          
+    @*            <li>
+                  <a href="../../Files/images/12.jpg">
+                    <img src="../../Files/miniaturki/1.jpg"  class="image1">
+                  </a>
+                </li>
+                <li>
+                  <a href="../../Files/images/12.jpg">
+                    <img src="../../Files/miniaturki/1.jpg"  longdesc="http://coffeescripter.com"  class="image2">
+                  </a>
+                </li>
+                <li>
+                  <a href="../../Files/images/12.jpg">
+                    <img src="../../Files/miniaturki/1.jpg" alt="This is a nice, and incredibly descriptive, description of the image 12.jpg" class="image3">
+                  </a>
+                </li>
+    *@
+              </ul>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div class="DanePracownica">
+
+     @{ 
+         Html.RenderAction("OfertaPolaDisply", "Pracownica");
+      }
+
+  </div> 

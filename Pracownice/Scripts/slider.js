@@ -1,5 +1,6 @@
 ﻿//jQuery.noConflict();
 
+
 $(document).ready(function (){
 //efekt po najechaniu najechaniu na zakladkę
 $(".zakladka").mouseover(function() {
@@ -18,7 +19,7 @@ $(this).animate({
 		  );
 });
 //efekt pozycji podmenu
-$("li").mouseover(function() {
+$("li#mSlider").mouseover(function() {
 	$(this).animate({
 		opacity: 0.5, //przezroczystość elementu na 50%
 		paddingLeft: "0.3em" // małe przesunięcie treści  
@@ -26,7 +27,7 @@ $("li").mouseover(function() {
 		      );
 });
 //powrót do pierwotnej formy podmenu
-	$("li").mouseout(function() {
+	$("li#mSlider").mouseout(function() {
 		$(this).animate({
 			opacity: 1.0, //przezroczystość elementu na 100%
     		paddingLeft: "0.0em"

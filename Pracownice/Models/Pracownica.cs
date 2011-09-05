@@ -1,5 +1,6 @@
-﻿
-namespace Pracownice.Models.pracownica
+﻿using System.Collections.Generic;
+
+namespace Pracownice.Models
 {
     public class Pracownica
     {
@@ -20,6 +21,8 @@ namespace Pracownice.Models.pracownica
         public string Boobs { get; set; }
 
         public string MainPhotoUrl { get; set; }
+        public string HeaderDescription { get; set; }
        
+        public virtual ICollection<File> Files { get; set; }
     }
 }

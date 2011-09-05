@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
-using Pracownice.Models.pracownica;
+using Pracownice.Models;
 
 namespace Pracownice.Controllers
 {
@@ -17,14 +17,21 @@ namespace Pracownice.Controllers
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
-            var laski = storeDb.Pracownice.ToList();
-                 
-            return View(laski);
+            var pracownice = GetMainPagePracownice(20);
+
+            return View(pracownice);
         }
 
-        public ActionResult About()
+        /// <summary>
+        /// Taking picture on the main page
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        private List<Pracownica> GetMainPagePracownice(int count)
         {
-            return View();
+            return storeDb.Pracownice
+                .Take(count)
+                .ToList();
         }
     }
 }
