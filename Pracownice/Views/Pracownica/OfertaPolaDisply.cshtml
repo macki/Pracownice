@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Pracownice.Models.WyswietloneDane>
+
+
+@{   
+    int counter = 0;
+
+    foreach (var item in Model)
+    {
+
+        if (ViewData.ElementAt(counter).Value != null)
+        {
+            <div class="ZoltePole">
+                <div class="NapisZoltePole">
+                    @item.NameOfYellowField
+                </div>
+
+                <div class= "DanePracownicy">
+                  @ViewData.ElementAt(counter).Value
+                </div>
+             </div>
+    
+            counter++;
+        }
+    }
+}
+
+

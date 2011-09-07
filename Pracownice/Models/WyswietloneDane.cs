@@ -5,13 +5,12 @@ using System.Web;
 
 namespace Pracownice.Models
 {
-    public class PolaOferty
+    public class WyswietloneDane
     {
-        public int PolaOfertyID { get; set; }
+        public int WyswietloneDaneID { get; set; }
 
         public string NameOfYellowField { get; set;}
         public int IdOfYellowField { get; set; }
-        public int IdOfYellowField2 { get; set; }
     }
 }
 

@@ -47,6 +47,14 @@ namespace Pracownice.Controllers
 
         }
 
+        // GET: /Pracownica/OfertaPolaDisplay
+        public ActionResult UslugiDisplay(int id)
+        {
+            var dziewczynaUslugi = storeDb.Uslugi.Find(id);
+
+            return PartialView(dziewczynaUslugi.Uslugi.ToList());
+        }
+
 
     }
 }

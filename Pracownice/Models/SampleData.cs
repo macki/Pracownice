@@ -18,17 +18,17 @@ namespace Pracownice.Models
 
             #region Pola Oferty
 
-            var PolaOferty = new List<PolaOferty>
+            var PolaOferty = new List<WyswietloneDane>
             { 
-               new PolaOferty { NameOfYellowField = "Miasto", IdOfYellowField = 1},
-               new PolaOferty { NameOfYellowField = "Wiek", IdOfYellowField = 3},
-               new PolaOferty { NameOfYellowField = "Wzrost", IdOfYellowField = 4},
-               new PolaOferty { NameOfYellowField = "Biust", IdOfYellowField = 5},
-               new PolaOferty { NameOfYellowField =  "Znane języki", IdOfYellowField = 6},
-               new PolaOferty { NameOfYellowField = "Telefon", IdOfYellowField = 7},
-               new PolaOferty { NameOfYellowField =  "Email", IdOfYellowField = 8},
-               new PolaOferty { NameOfYellowField =  "Skype", IdOfYellowField = 9},
-               new PolaOferty { NameOfYellowField =  "Godziny pracy", IdOfYellowField = 10}
+               new WyswietloneDane { NameOfYellowField = "Miasto", IdOfYellowField = 1},
+               new WyswietloneDane { NameOfYellowField = "Wiek", IdOfYellowField = 3},
+               new WyswietloneDane { NameOfYellowField = "Wzrost", IdOfYellowField = 4},
+               new WyswietloneDane { NameOfYellowField = "Biust", IdOfYellowField = 5},
+               new WyswietloneDane { NameOfYellowField =  "Znane języki", IdOfYellowField = 6},
+               new WyswietloneDane { NameOfYellowField = "Telefon", IdOfYellowField = 7},
+               new WyswietloneDane { NameOfYellowField =  "Email", IdOfYellowField = 8},
+               new WyswietloneDane { NameOfYellowField =  "Skype", IdOfYellowField = 9},
+               new WyswietloneDane { NameOfYellowField =  "Godziny pracy", IdOfYellowField = 10}
             };
 
             PolaOferty.ForEach(d => context.Oferta.Add(d));
@@ -244,6 +244,44 @@ namespace Pracownice.Models
 
             #endregion Files
 
+            #region Uslugi
+
+            var uslugiPracownica = new List<PracownicaUslugi>
+            {
+                new PracownicaUslugi { PracownicaID = 1},
+                new PracownicaUslugi { PracownicaID = 2},
+                new PracownicaUslugi { PracownicaID = 3},
+                new PracownicaUslugi { PracownicaID = 4},
+                new PracownicaUslugi { PracownicaID = 5},
+                new PracownicaUslugi { PracownicaID = 6},
+                new PracownicaUslugi { PracownicaID = 7},
+                new PracownicaUslugi { PracownicaID = 8},
+                new PracownicaUslugi { PracownicaID = 9}
+            };
+
+
+            foreach(var item in uslugiPracownica)
+            {
+                item.Uslugi = new List<Usluga>
+                {
+                    new Usluga { Name="Masaż1", Description="Masaz Desc", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID  },
+                    new Usluga { Name="Masaż2", Description="Masaz Desc2", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż3", Description="Masaz Desc3", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż4", Description="Masaz Desc4", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż5", Description="Masaz Desc5", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż6", Description="Masaz Desc6", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż7", Description="Masaz Desc7", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
+                    new Usluga { Name="Masaż8", Description="Masaz Desc8", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID }
+                };
+            }
+
+
+
+            uslugiPracownica.ForEach( u => context.Uslugi.Add(u));
+
+            context.SaveChanges();
+
+            #endregion
 
         }
     }

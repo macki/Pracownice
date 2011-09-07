@@ -1,0 +1,14 @@
+﻿@model List<Pracownice.Models.Usluga>
+
+@{
+    ViewBag.Title = "UslugiDisplay";
+}
+
+@foreach (var item in Model)
+{
+    <li> @item.Name</li>
+    <li> @item.Description</li>
+   
+}
+
+<h2>UslugiDisplay</h2>

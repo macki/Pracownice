@@ -24,8 +24,20 @@
     
     font-family:Myriad Pro;
     font-size:15px; 
-    color: #FFFFFF ;   
+    color: #FFFFFF ;  
+}
 
+.ikonyGaleria
+{
+    position:absolute;
+    display:inline-block;
+    
+    margin: -110px 0 0 550px;
+    
+    width:150px;
+    height:50px;
+
+    
 }
 
 .GaleriaPracownica
