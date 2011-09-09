@@ -43,6 +43,8 @@ namespace Pracownice.Controllers
             ViewData["Telefon"] = dziewczyna.TelephoneNumber;
             ViewData["Email"] = dziewczyna.Email;
             ViewData["Skype"] = dziewczyna.SkypeNumber;
+            ViewData["Oczy"] = dziewczyna.Eye;
+            ViewData["Hair"] = dziewczyna.Hair;
             ViewData["Godziny"] = null;
 
         }

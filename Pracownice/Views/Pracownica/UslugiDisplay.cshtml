@@ -4,11 +4,20 @@
     ViewBag.Title = "UslugiDisplay";
 }
 
-@foreach (var item in Model)
-{
-    <li> @item.Name</li>
-    <li> @item.Description</li>
-   
-}
+<link href="@Url.Content("~/Content/pracownicaStyle.css")" rel="stylesheet" type="text/css" />
 
-<h2>UslugiDisplay</h2>
+<div id="UslugiTloPracownica"></div>
+
+    <div id="UslugiNapis">
+        @foreach (var item in Model)
+        {
+            <li>
+                 @item.Name
+                 @item.Description
+                 @item.Prize
+                 @item.Time
+            </li>
+        }
+   </div>
+
+

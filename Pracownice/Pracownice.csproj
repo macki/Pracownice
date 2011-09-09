@@ -141,6 +141,7 @@
     <Content Include="Content\Images\TopPanel\zaloguj.png" />
     <Content Include="Content\Images\TopPanel\zolte.png" />
     <Content Include="Content\Images\slider.png" />
+    <Content Include="Content\Images\UslugiTlo.png" />
     <Content Include="Content\jQueryGallery\ad_next.png" />
     <Content Include="Content\jQueryGallery\ad_prev.png" />
     <Content Include="Content\jQueryGallery\ad_scroll_back.png" />
