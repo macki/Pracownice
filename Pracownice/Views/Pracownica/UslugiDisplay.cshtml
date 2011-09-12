@@ -11,12 +11,15 @@
     <div id="UslugiNapis">
         @foreach (var item in Model)
         {
-            <li>
-                 @item.Name
-                 @item.Description
-                 @item.Prize
-                 @item.Time
-            </li>
+            if (item.Active == true)
+            {
+                <li>
+                     @item.Name
+                     @item.Description
+                     @item.Prize
+                     @item.Time
+                </li>
+            }
         }
    </div>
 

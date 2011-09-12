@@ -52,8 +52,11 @@ namespace Pracownice.Models
                                     Hair = "Blond",
                                     Height = 160,
                                    
+                                    workingHours ="10-12,15-18,19-22",
+
                                     MainPhotoUrl = baseUrlMainPhoto + "1.jpg",
-                                    HeaderDescription = "Zapraszamy Państwa do urozmaicenia swojego pobytu na Mazurach. Proponujemy miejsocowość Ruciane Nida jako 'wrota mazur' w Porcie U FARYJA. Organizujemy rejsy statkami FARYJ I, FARYJ II oraz statkiem BĄBEL po Wielkich Jeziorach Mazurskich, a także organizujemy dla Państwa indywidualną ofertę podróży po akwenach Mazur."
+                                    HeaderDescription = "Zapraszamy Państwa do urozmaicenia swojego pobytu na Mazurach. Proponujemy miejsocowość Ruciane Nida jako 'wrota mazur' w Porcie U FARYJA. Organizujemy rejsy statkami FARYJ I, FARYJ II oraz statkiem BĄBEL po Wielkich Jeziorach Mazurskich, a także organizujemy dla Państwa indywidualną ofertę podróży po akwenach Mazur.",
+                                    OfertaDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at nisl sit amet nulla tristique varius nec nec sem. Praesent lacus nisi, pulvinar in aliquet sed, sagittis sed nunc. Fusce a lobortis eros. Cras condimentum nibh vitae ipsum cursus suscipit. Nam eget lorem lorem. Vivamus ullamcorper vulputate cursus. Phasellus sed ullamcorper leo. Suspendisse accumsan diam in nisl tristique placerat. Nulla nec eleifend nulla. Cras tincidunt mi nec quam pulvinar elementum."
                 },
                                     
             
@@ -72,7 +75,8 @@ namespace Pracownice.Models
                                         Height = 160,
                                     
                                         MainPhotoUrl = baseUrlMainPhoto+ "2.jpg",
-                                        HeaderDescription = "Zapraszamy Państwa do urozmaicenia swojego pobytu na Mazurach. Proponujemy miejsocowość Ruciane Nida jako 'wrota mazur' w Porcie U FARYJA. Organizujemy rejsy statkami FARYJ I, FARYJ II oraz statkiem BĄBEL po Wielkich Jeziorach Mazurskich, a także organizujemy dla Państwa indywidualną ofertę podróży po akwenach Mazur."
+                                        HeaderDescription = "Zapraszamy Państwa do urozmaicenia swojego pobytu na Mazurach. Proponujemy miejsocowość Ruciane Nida jako 'wrota mazur' w Porcie U FARYJA. Organizujemy rejsy statkami FARYJ I, FARYJ II oraz statkiem BĄBEL po Wielkich Jeziorach Mazurskich, a także organizujemy dla Państwa indywidualną ofertę podróży po akwenach Mazur.",
+                                        OfertaDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at nisl sit amet nulla tristique varius nec nec sem. Praesent lacus nisi, pulvinar in aliquet sed, sagittis sed nunc. Fusce a lobortis eros. Cras condimentum nibh vitae ipsum cursus suscipit. Nam eget lorem lorem. Vivamus ullamcorper vulputate cursus. Phasellus sed ullamcorper leo. Suspendisse accumsan diam in nisl tristique placerat. Nulla nec eleifend nulla. Cras tincidunt mi nec quam pulvinar elementum."
                 },
             
                new Pracownica {Name = "Basia",
@@ -264,7 +268,7 @@ namespace Pracownice.Models
             {
                 item.Uslugi = new List<Usluga>
                 {
-                    new Usluga { Name="Masaż1", Description="Masaz Desc", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID  },
+                    new Usluga { Name="Masaż1", Description="Masaz Desc", Prize=100, Time = "20 min", Active = true,  PracownicaUslugiID = item.PracownicaUslugiID },
                     new Usluga { Name="Masaż2", Description="Masaz Desc2", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
                     new Usluga { Name="Masaż3", Description="Masaz Desc3", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
                     new Usluga { Name="Masaż4", Description="Masaz Desc4", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },

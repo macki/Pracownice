@@ -1,72 +1,102 @@
 ﻿
 <div class="top">
-                <div class="logo">
-                 <a href="@Url.Action("","Home")"><img src="../../Content/Images/Logo/logo.png" /></a> 
+    <div class="logo">
+        <a href="@Url.Action("","Home")"><img src="../../Content/Images/Logo/logo.png" /></a> 
+    </div>
+                
+    <div class="kobitaLogo">
+        <img src="../../Content/Images/Logo/kobitaLogo.png" />
+    </div>
+
+    <div class="panelPrawaStrona">
+       
+            @if (Request.IsAuthenticated)
+            {
+                <div id="loginRegister">
+                    <div id="PracownicaUniwersalnaWyloguj"> 
+                         @Html.ActionLink("Wyloguj", "LogOff", "Account")
+                     </div>    
+                
+            
+                <div id="PracownicaUniwersalnaCzcionka">
+                    Witaj, <br /> @User.Identity.Name
                 </div>
                 
-                <div class="kobitaLogo">
-                    <img src="../../Content/Images/Logo/kobitaLogo.png" />
+                <div id="PracownicaUniwersalnaCzcionka" style="margin-top:5px; margin-left:138px">                    
+                     <a href="@Url.Action("AccountMenager", "Pracownica")">Twoje Konto</a>
+                </div>   
+ 
+             </div>      
+            }
+            else
+            {
+                <div id="loginRegister">
+                     @*Html.ActionLink("Log On", "LogOn", "Account")*@
+                     @Html.Partial("_LogOnPartial", new Pracownice.Models.LogOnModel());
+                </div>
+            }
+        
+
+        @if (!Request.IsAuthenticated == null)
+        {
+                   
+            <div id="loginRegister">
+                @using (Html.BeginForm())
+                {
+                    <div class ="napisZarejstruj">
+                        <a href="@Url.Action("Register", "Account")">Zarejstruj się</a>
+                    </div>
+                                
+                    <div class="editor-field">
+                        @Html.TextBox("macki")
+                    </div>
+
+                    <div class="editor-field">
+                        @Html.TextBox("macki2")  
+                    </div>
+                                
+                    <div class="zaloguj">
+                            <input type="submit" value="Zaloguj" class="Button_ZalogujMnie" />
+                    </div>
+                }
+            </div>
+        }
+
+                <div class="flagi">
+                    <img src="../../Content/Images/TopPanel/flagiCzarne.png"" />
                 </div>
 
-                <div class="panelPrawaStrona">
+                <div class="napisGora">
+                    <div class="napisPanowie">
+                        Panowie
+                    </div>
 
-                        <div class="loginRegister">
-                            @using (Html.BeginForm())
-                            {
-                                <div class ="napisZarejstruj">
-                                    Zarestruj sie
-                                </div>
-                                
-                                <div class="editor-field">
-                                    @Html.TextBox("macki")
-                                </div>
+                    <div class="napisPanie">
+                        Panie
+                    </div>
 
-                                <div class="editor-field">
-                                        @Html.TextBox("macki2")  
-                                </div>
-                                
-
-                                <div class="zaloguj">
-                                    <img src="../../Content/Images/TopPanel/zaloguj.png"  />
-                                </div>
-                            }
-                        </div>
-
-                            <div class="flagi">
-                                <img src="../../Content/Images/TopPanel/flagiCzarne.png"" />
-                            </div>
-
-                            <div class="napisGora">
-                                <div class="napisPanowie">
-                                   Panowie
-                                </div>
-
-                                <div class="napisPanie">
-                                    Panie
-                                </div>
-
-                                <div class="napisKluby">
-                                    Kluby
-                                </div>
+                    <div class="napisKluby">
+                        Kluby
+                    </div>
                                     
-                            </div>
+                </div>
 
                            
-                           <div class="napisSzukajOgloszenia">
-                             Szukaj Ogloszenia
-                           </div>
-
-                           <div class="napisKontaktZnami">
-                            Kontakt z Nami
-                           </div>
-
-                           <div class="napisOfertyPracy">
-                            Oferty Pracy
-                           </div>
-
-                           <div class="napisDodajNowyAnons">
-                            Dodaj Nowy Anons
-                           </div>
-
+                <div class="napisSzukajOgloszenia">
+                    Szukaj Ogloszenia
                 </div>
+
+                <div class="napisKontaktZnami">
+                Kontakt z Nami
+                </div>
+
+                <div class="napisOfertyPracy">
+                Oferty Pracy
+                </div>
+
+                <div class="napisDodajNowyAnons">
+                Dodaj Nowy Anons
+                </div>
+
+    </div>
  </div>

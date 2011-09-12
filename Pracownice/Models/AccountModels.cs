@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using Pracownice.Utils;
 
 namespace Pracownice.Models
 {
@@ -49,6 +50,7 @@ namespace Pracownice.Models
         public string UserName { get; set; }
 
         [Required]
+        [Email]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email address")]
         public string Email { get; set; }
@@ -64,9 +66,13 @@ namespace Pracownice.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
         [Display(Name = "Role")]
         public string Role { get; set; }
+
+        [Required]
+        [Display(Name = "Accept Rules")]
+        [MustBeTrue(ErrorMessage = "You must accept the terms and conditions")]
+        public bool AcceptRules { get; set; }
 
     }
 }

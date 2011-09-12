@@ -11,7 +11,7 @@ namespace Pracownice.Controllers
 {
     public class AccountController : Controller
     {
-
+        Pracownice.Models.PracowniceEntities storeDb = new Models.PracowniceEntities();
         //
         // GET: /Account/LogOn
 
@@ -75,6 +75,8 @@ namespace Pracownice.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            model.Role = "User";
+
             if (ModelState.IsValid)
             {
                 // Attempt to register the user

@@ -19,9 +19,11 @@ namespace Pracownice.Models
         public string Eye { get; set; }
         public int Height { get; set; }
         public string Boobs { get; set; }
+        public string workingHours { get; set; }
 
         public string MainPhotoUrl { get; set; }
         public string HeaderDescription { get; set; }
+        public string OfertaDescription { get; set; }
        
         public virtual ICollection<File> Files { get; set; }
     }

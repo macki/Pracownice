@@ -69,8 +69,19 @@
 
   <div class="ikonyGaleria">
     <ul class="gallery clearfix"> 
-        <a href="@Url.Action("UslugiDisplay", "Pracownica", new { id = Model.PracownicaID });iframe=true&amp;width=80%&amp;height=90%" rel="prettyPhoto[iframe]"> <img src="../../Content/Images/icon_question.png" width=50/></a>
+        <a href="@Url.Action("UslugiDisplay", "Pracownica", new { id = Model.PracownicaID });iframe=true&amp;width=80%&amp;height=90%" rel="prettyPhoto[iframe]"> <img src="../../Content/Images/icon_question.png" width=50 style="margin:5px"/></a>
+    
+        <a href="DodajDOUlubionych">
+            <img src="../../Content/Images/UlubioneIcon.png" alt="Alternate Text" /></a>
+
+        <a href="DodajOpnie">
+            <img src="../../Content/Images/dodajOpinieIcon.png" alt="Alternate Text" /></a>
+
+         <a href="ZglosNaruszenie">
+            <img src="../../Content/Images/zglosNaruszenieIcon.png" alt="Alternate Text" style="margin-left:15px" /></a>
+
     </ul>
+    
   </div>
 
   <div class="opisNaglowekPracownica" >
@@ -117,9 +128,16 @@
   </div>
 
   <div class="DanePracownica">
-
      @{ 
          Html.RenderAction("OfertaPolaDisply", "Pracownica");
       }
-
   </div> 
+
+<div class="PracownicaTrescOferty">
+    <img src="../../Content/Images/trescOfertyIcon.png" alt="Alternate Text" /></a>  
+    
+    <div class="PracownicaOpisOferty">
+        @Model.OfertaDescription
+    </div>
+
+</div>
