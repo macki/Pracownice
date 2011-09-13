@@ -86,6 +86,9 @@ namespace Pracownice.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+
+                    CreatePracownicaAccount(model);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -96,6 +99,43 @@ namespace Pracownice.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        
+        /// <summary>
+        /// Create new Pracownica and attach it to the account model
+        /// </summary>
+        /// <param name="model"></param>
+        private void CreatePracownicaAccount(RegisterModel model)
+        {
+            try
+            {
+                var pracownica = new Pracownice.Models.Pracownica();
+                    pracownica.Uslugi = new List<Usluga>();
+                    pracownica.Name = model.UserName;
+                    pracownica.Email = model.Email;
+                    pracownica.MainPhotoUrl = MyConfig.baseUrl + "/Files/images/" + "unknown.png";
+
+                    var file = new List<Pracownice.Models.File>
+                    {
+                        new File {PracownicaId = pracownica.PracownicaID, Url = MyConfig.baseUrl + "/Files/images/unknown.png", thumbUrl = MyConfig.baseUrl + "/Files/miniaturki/unknownThumb.png"}
+                    };
+
+                    pracownica.Files = file;
+
+                storeDb.Pracownice.Add(pracownica);
+                storeDb.SaveChanges();
+
+                foreach (var item in storeDb.BazoweUslugi)
+                {
+                    pracownica.Uslugi.Add(new Usluga {Name=item.nazwaUslugi, Description = "Dodaj Swój Opis", Prize=0, Time = "czas uslugi", Active = true, PracownicaID = pracownica.PracownicaID} );
+                }
+
+                storeDb.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         //

@@ -1,12 +1,14 @@
 ﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
+
 <%@ Register Assembly="obout_ListBox" Namespace="Obout.ListBox" TagPrefix="cc1" %>
 
 <form id="form1" runat="server">
        <cc1:ListBox ID="ListBox2" runat="server" 
-            style="top: -4px; left: 0px; display:block" 
+            style="top: 0px; left: 0px; display:block" 
             Font-Names="Andalus" FolderStyle="../../Content/skins/plain" 
-            Font-Size="Large"  Height="285px" Width="170px" >
+            Font-Size="Large"  Height="285px" Width="170px" Focused="True" >
+            <ClientSideEvents OnItemClick="ClickItem" />
             <cc1:ListBoxItem ID="ListBoxItem1" runat="server" Text="Andrychów" Font-Size="Small"/>
             <cc1:ListBoxItem ID="ListBoxItem2" runat="server" Text="Bielsko-Biała" Font-Size="Small"/>
             <cc1:ListBoxItem ID="ListBoxItem3" runat="server" Text="Chorzów" Font-Size="Small" />
@@ -33,6 +35,6 @@
             <cc1:ListBoxItem ID="ListBoxItem15" runat="server" Text="Warszawa" Font-Size="Small"/>
             <cc1:ListBoxItem ID="ListBoxItem16" runat="server" Text="Warszawa" Font-Size="Small"/>
 </cc1:ListBox>
+ 
 
 </form>
-

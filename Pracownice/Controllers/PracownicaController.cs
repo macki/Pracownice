@@ -51,26 +51,26 @@ namespace Pracownice.Controllers
         // GET: /Pracownica/OfertaPolaDisplay
         public ActionResult UslugiDisplay(int id)
         {
-            var dziewczynaUslugi = storeDb.Uslugi.Find(id);
+            var dziewczynaUslugi = storeDb.Pracownice.Find(id).Uslugi;
 
-            return PartialView(dziewczynaUslugi.Uslugi.ToList());
+            return PartialView(dziewczynaUslugi.ToList());
         }
 
-        public ActionResult AccountMenager(AccountController model)
+        public ActionResult AccountMenager()
         {
-            Pracownice.Models.Pracownica pracownica = storeDb.Pracownice.Find(1); 
-
             if (User.Identity.IsAuthenticated)
             {
                 //TODO get pracownica
-                //pracownica = storeDb.Pracownice.Find()              
+                var pracownica = storeDb.Pracownice.Where(m => m.Name == User.Identity.Name)
+                            .Single();
+
+                return View(pracownica); 
             }
             else
             {
-                pracownica = null;
+                return View("Index");
             }
 
-            return View(pracownica);
         }
 
     }

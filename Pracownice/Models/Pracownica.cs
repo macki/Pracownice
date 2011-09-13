@@ -26,5 +26,6 @@ namespace Pracownice.Models
         public string OfertaDescription { get; set; }
        
         public virtual ICollection<File> Files { get; set; }
+        public virtual List<Usluga> Uslugi { get; set; }
     }
 }

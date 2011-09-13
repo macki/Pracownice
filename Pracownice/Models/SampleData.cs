@@ -107,7 +107,7 @@ namespace Pracownice.Models
                                         Hair = "Blond",
                                         Height = 160,
                                     
-                                        MainPhotoUrl = baseUrlMainPhoto+ "4.jpg" },
+                                        MainPhotoUrl = baseUrlMainPhoto + "4.jpg" },
 
                 new Pracownica {Name = "Basia dddddddddddddddddddd",
                                         City = "Cieszyn",  
@@ -207,83 +207,81 @@ namespace Pracownice.Models
 
             #region Files 
 
-            var files1 = new List<File>
+            foreach (var item in pracownice)
             {
-                new File { PracownicaId = 1,
-                           Description = "a1",
-                           thumbUrl = thumbPhoto + "1.jpg",
-                           Url = baseUrlMainPhoto + "1.jpg",
-                           pracownica = pracownice.Single( p => p.PracownicaID == 1)
-                },
+                var files1 = new List<File>
+                {
+                    new File { PracownicaId = item.PracownicaID,
+                               Description = "a1",
+                               thumbUrl = thumbPhoto + "1.jpg",
+                               Url = baseUrlMainPhoto + "1.jpg",
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                    },
 
-                new File { PracownicaId = 1,
-                           Description = "a1",
-                           thumbUrl = thumbPhoto + "1.jpg",
-                           Url = baseUrlMainPhoto + "2.jpg",
-                           pracownica = pracownice.Single( p => p.PracownicaID == 1)
-                },
+                    new File { PracownicaId = item.PracownicaID,
+                               Description = "a1",
+                               thumbUrl = thumbPhoto + "1.jpg",
+                               Url = baseUrlMainPhoto + "2.jpg",
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                    },
 
-                new File { PracownicaId = 1,
-                           Description = "a2",
-                           thumbUrl = thumbPhoto + "1.jpg",
-                           Url = baseUrlMainPhoto + "3.jpg",
-                           pracownica = pracownice.Single( p => p.PracownicaID == 1)
-                },
+                    new File { PracownicaId = item.PracownicaID,
+                               Description = "a2",
+                               thumbUrl = thumbPhoto + "1.jpg",
+                               Url = baseUrlMainPhoto + "3.jpg",
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                    },
 
-                new File { PracownicaId = 2,
-                           Description = "a2",
-                           pracownica = pracownice.Single( p => p.PracownicaID == 2)
-                },
+                    new File { PracownicaId = item.PracownicaID,
+                               Description = "a2",
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                    },
 
-                new File { PracownicaId = 3,
-                           Description = "a3",
-                           pracownica = pracownice.Single( p => p.PracownicaID == 3)
-                }
+                    new File { PracownicaId = item.PracownicaID,
+                               Description = "a3",
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                    }
+                };
 
+                files1.ForEach(m => context.Files.Add(m));
             };
 
-            files1.ForEach(a => context.Files.Add(a));
-
-            context.SaveChanges();
+            //context.SaveChanges();
 
             #endregion Files
 
-            #region Uslugi
+            #region Utworzenie Bazowych uslug
 
-            var uslugiPracownica = new List<PracownicaUslugi>
+            var bazoweUslugi = new List<BazowaListaUslug>
             {
-                new PracownicaUslugi { PracownicaID = 1},
-                new PracownicaUslugi { PracownicaID = 2},
-                new PracownicaUslugi { PracownicaID = 3},
-                new PracownicaUslugi { PracownicaID = 4},
-                new PracownicaUslugi { PracownicaID = 5},
-                new PracownicaUslugi { PracownicaID = 6},
-                new PracownicaUslugi { PracownicaID = 7},
-                new PracownicaUslugi { PracownicaID = 8},
-                new PracownicaUslugi { PracownicaID = 9}
+                new BazowaListaUslug { nazwaUslugi="Sprzątanie w bieliźnie"},
+                new BazowaListaUslug { nazwaUslugi="Sprzątanie nago"},
+                new BazowaListaUslug { nazwaUslugi="Mycie samochodu w bieliźnie"},
+                new BazowaListaUslug { nazwaUslugi="Wyjście do kina"},
+                new BazowaListaUslug { nazwaUslugi="Dziewczyna na imprezę"},
+                new BazowaListaUslug { nazwaUslugi="Rozmowa na Skypie"},
+                new BazowaListaUslug { nazwaUslugi="Śniadanie do łóżka"}
             };
 
+            bazoweUslugi.ForEach(a => context.BazoweUslugi.Add(a));
+            context.SaveChanges();
 
-            foreach(var item in uslugiPracownica)
+            #endregion
+
+            #region
+
+            foreach (var item in pracownice)
             {
-                item.Uslugi = new List<Usluga>
-                {
-                    new Usluga { Name="Masaż1", Description="Masaz Desc", Prize=100, Time = "20 min", Active = true,  PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż2", Description="Masaz Desc2", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż3", Description="Masaz Desc3", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż4", Description="Masaz Desc4", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż5", Description="Masaz Desc5", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż6", Description="Masaz Desc6", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż7", Description="Masaz Desc7", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID },
-                    new Usluga { Name="Masaż8", Description="Masaz Desc8", Prize=100, Time = "20 min", Active = true, PracownicaUslugiID = item.PracownicaUslugiID }
-                };
+                item.Uslugi = new List<Usluga>();
+
+                foreach (var bU in bazoweUslugi)
+                {  
+                    item.Uslugi.Add( new Usluga { Name = bU.nazwaUslugi, Description = "Gotowy Text", Prize = 0, Time = null, Active = true, PracownicaID = item.PracownicaID });
+                }
             }
 
-
-
-            uslugiPracownica.ForEach( u => context.Uslugi.Add(u));
-
-            context.SaveChanges();
+            //pracownice.ForEach(u => context.Pracownice.Add(u));
+            //context.SaveChanges();
 
             #endregion
 

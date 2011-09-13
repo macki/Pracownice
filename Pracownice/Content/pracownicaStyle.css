@@ -16,8 +16,9 @@
 .opisNaglowekPracownica
 {
     position:relative;
+    display:inline-block;
     height:auto;
-    width:680px; 
+    width:630px; 
     margin-top:-10px;
     padding-bottom:20px;
     margin-left:50px;
@@ -31,8 +32,7 @@
 {
     position:absolute;
     display:inline-block;
-    
-    margin: 125px 0px 0 650px;
+    margin: 0px 0px 0 650px;
     
     width:80px;
 }
@@ -88,7 +88,7 @@
 {
     position:relative;
     display:inline-block;
-    
+    width:630px;
     height:auto;
     margin-top:35px;  
     margin-left:35px;    

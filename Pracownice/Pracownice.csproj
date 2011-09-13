@@ -76,13 +76,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BazowaListaUslug.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Usluga.cs" />
     <Compile Include="Models\WyswietloneDane.cs" />
     <Compile Include="Models\Pracownica.cs" />
     <Compile Include="Models\PracowniceEntities.cs" />
     <Compile Include="Models\SampleData.cs" />
-    <Compile Include="Models\PracownicaUslugi.cs" />
     <Compile Include="MyConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\EmailAttribute.cs" />
