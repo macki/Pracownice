@@ -16,6 +16,37 @@ namespace Pracownice.Models
             var baseUrlMainPhoto = MyConfig.baseUrl + "/Files/images/";
             var thumbPhoto = MyConfig.baseUrl + "/Files/miniaturki/";
 
+            #region Miasta
+
+            var listaMiast = new List<BazowaListaMiast>
+            {
+                new BazowaListaMiast{NazwaMiasta = "Andrychów"},
+                new BazowaListaMiast{NazwaMiasta = "Bielsko-Biała"},
+                new BazowaListaMiast{NazwaMiasta = "Cieszyn" },
+                new BazowaListaMiast{NazwaMiasta = "Chorzów"},
+                new BazowaListaMiast{NazwaMiasta = "Warszawa"},
+                new BazowaListaMiast{NazwaMiasta = "Kraków"},
+                new BazowaListaMiast{NazwaMiasta = "Augustów"},
+                new BazowaListaMiast{NazwaMiasta = "Bełchatów"},
+                new BazowaListaMiast{NazwaMiasta = "Białystok"},
+                new BazowaListaMiast{NazwaMiasta = "Chrzanów"},
+                new BazowaListaMiast{NazwaMiasta = "Elbląg"},
+                new BazowaListaMiast{NazwaMiasta = "Gdańsk"},
+                new BazowaListaMiast{NazwaMiasta = "Jelenia Góra" },
+                new BazowaListaMiast{NazwaMiasta = "Kalisz"},
+                new BazowaListaMiast{NazwaMiasta = "Łódź"},
+                new BazowaListaMiast{NazwaMiasta = "Opole"},
+                new BazowaListaMiast{NazwaMiasta = "Olsztyn"},
+                new BazowaListaMiast{NazwaMiasta = "Pszczyna"},
+                new BazowaListaMiast{NazwaMiasta = "Piła"},
+                new BazowaListaMiast{NazwaMiasta = "Sopot"}
+            };
+
+            listaMiast.ForEach(m => context.BazowaListaMiast.Add(m));
+            context.SaveChanges();
+
+            #endregion
+
             #region Pola Oferty
 
             var PolaOferty = new List<WyswietloneDane>
@@ -42,7 +73,7 @@ namespace Pracownice.Models
             var pracownice = new List<Pracownica>
             {
                 new Pracownica {Name = "Anita sadsa dsadassadasdsa ",
-                                    City = "Cieszyn",  
+                                    City = "Andrychów",  
                                     Region = "Slask",
                                     TelephoneNumber = "604 43 24 54",
                                     SkypeNumber = "Anita56",
@@ -62,7 +93,7 @@ namespace Pracownice.Models
             
 
                 new Pracownica {Name = "Zosias sdsdsdsdd",
-                                        City = "Cieszyn",  
+                                        City = "Andrychów",  
                                         Region = "Slask",
                                     
                                         TelephoneNumber = "604 43 24 54",
@@ -285,6 +316,7 @@ namespace Pracownice.Models
 
             #endregion
 
+            context.SaveChanges();
         }
     }
 }

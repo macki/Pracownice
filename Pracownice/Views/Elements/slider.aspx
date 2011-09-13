@@ -1,40 +1,31 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Elements/ListBox.master" %>
+<%@ Register TagPrefix="obout" Namespace="Obout.ListBox" Assembly="obout_ListBox" %>
+<%@ Register TagPrefix="obout" Namespace="Obout.Interface" Assembly="obout_Interface" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="head">
+    <script type="text/javascript">
+
+        function ListBox1_ItemClick(sender, selectedIndex) {
+            window.location.href = '/Home/Index/' + selectedIndex;
+        }
+    </script>
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
 
-<%@ Register Assembly="obout_ListBox" Namespace="Obout.ListBox" TagPrefix="cc1" %>
-
-<form id="form1" runat="server">
-       <cc1:ListBox ID="ListBox2" runat="server" 
-            style="top: 0px; left: 0px; display:block" 
-            Font-Names="Andalus" FolderStyle="../../Content/skins/plain" 
-            Font-Size="Large"  Height="285px" Width="170px" Focused="True" >
-            <ClientSideEvents OnItemClick="ClickItem" />
-            <cc1:ListBoxItem ID="ListBoxItem1" runat="server" Text="Andrychów" Font-Size="Small"/>
-            <cc1:ListBoxItem ID="ListBoxItem2" runat="server" Text="Bielsko-Biała" Font-Size="Small"/>
-            <cc1:ListBoxItem ID="ListBoxItem3" runat="server" Text="Chorzów" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem4" runat="server" Text="Glwice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem5" runat="server" Text="Katowice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem6" runat="server" Text="Gdańsk" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem7" runat="server" Text="Wrocław" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem17" runat="server" Text="Chorzów" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem18" runat="server" Text="Glwice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem19" runat="server" Text="Katowice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem22" runat="server" Text="Glwice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem23" runat="server" Text="Katowice" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem24" runat="server" Text="Gdańsk" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem25" runat="server" Text="Wrocław" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem20" runat="server" Text="Gdańsk" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem21" runat="server" Text="Wrocław" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem8" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem9" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem10" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem11" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem12" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem13" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem14" runat="server" Text="Warszawa" Font-Size="Small" />
-            <cc1:ListBoxItem ID="ListBoxItem15" runat="server" Text="Warszawa" Font-Size="Small"/>
-            <cc1:ListBoxItem ID="ListBoxItem16" runat="server" Text="Warszawa" Font-Size="Small"/>
-</cc1:ListBox>
- 
-
-</form>
+    <obout:ListBox runat="server" ID="ListBox1" Width="178"
+        DataSourceID="sds1" DataTextField="NazwaMiasta" DataValueField="BazowaListaMiastId"
+        style="top: 0px; left: 0px; display:block" 
+        Font-Names="Andalus" FolderStyle="../../Content/skins/plain" 
+        Font-Size="Large" Height="285px" Focused="true"
+        >
+        <ClientSideEvents 
+            OnItemClick="ListBox1_ItemClick" />
+    </obout:ListBox>
+    
+    <asp:SqlDataSource ID="sds1" runat="server" SelectCommand="SELECT * FROM [BazowaListaMiast]"
+		ConnectionString="<%$ ConnectionStrings:PracowniceEntities %>" 
+        ProviderName="<%$ ConnectionStrings:PracowniceEntities.ProviderName %>"></asp:SqlDataSource>
+	
+</asp:Content>

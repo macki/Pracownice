@@ -16,6 +16,7 @@ namespace Pracownice.Models
         public DbSet<WyswietloneDane> Oferta { get; set; }
         public DbSet<Usluga> Usluga { set; get; }
         public DbSet<BazowaListaUslug> BazoweUslugi { set; get; }
+        public DbSet<BazowaListaMiast> BazowaListaMiast { set; get; }
             
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
