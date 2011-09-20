@@ -83,7 +83,7 @@ namespace Pracownice.Models
                                     Hair = "Blond",
                                     Height = 160,
                                    
-                                    workingHours ="10-12,15-18,19-22",
+                                    WorkingHours ="10-12,15-18,19-22",
 
                                     MainPhotoUrl = baseUrlMainPhoto + "1.jpg",
                                     HeaderDescription = "Zapraszamy Państwa do urozmaicenia swojego pobytu na Mazurach. Proponujemy miejsocowość Ruciane Nida jako 'wrota mazur' w Porcie U FARYJA. Organizujemy rejsy statkami FARYJ I, FARYJ II oraz statkiem BĄBEL po Wielkich Jeziorach Mazurskich, a także organizujemy dla Państwa indywidualną ofertę podróży po akwenach Mazur.",
@@ -246,7 +246,7 @@ namespace Pracownice.Models
                                Description = "a1",
                                thumbUrl = thumbPhoto + "1.jpg",
                                Url = baseUrlMainPhoto + "1.jpg",
-                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID)
+                               pracownica = pracownice.Single( p => p.PracownicaID == item.PracownicaID),
                     },
 
                     new File { PracownicaId = item.PracownicaID,

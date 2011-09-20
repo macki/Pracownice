@@ -32,7 +32,7 @@
             {
                 <div id="loginRegister">
                      @*Html.ActionLink("Log On", "LogOn", "Account")*@
-                     @Html.Partial("_LogOnPartial", new Pracownice.Models.LogOnModel());
+                     @Html.Partial("_LogOnPartial", new Pracownice.Models.LogOnModel())
                 </div>
             }
         
@@ -41,12 +41,13 @@
         {
                    
             <div id="loginRegister">
-                @using (Html.BeginForm())
-                {
+               
                     <div class ="napisZarejstruj">
-                        <a href="@Url.Action("Register", "Account")">Zarejstruj się</a>
+                        <a href="@Url.Action("Register", "Register")">Zarejstruj się</a>
                     </div>
-                                
+
+                @using (Html.BeginForm())
+                {                
                     <div class="editor-field">
                         @Html.TextBox("macki")
                     </div>

@@ -178,12 +178,12 @@ header, #header {
 
 .napisZarejstruj
 {
-    left:135px;
+    left:125px;
     top:5px;
     font-family:Myriad Pro;
-    font-size:14px;
+    font-size:13px;
     text-align:center;
-    width:80px;
+    width:100px;
     height:auto;
     color: #fbf28c;   
     display:block;
@@ -486,6 +486,7 @@ fieldset {
     margin: 0 0 0 0;
     display:inline-block;
     position:relative;
+    min-width:500px
 }
 
 legend {
@@ -627,10 +628,9 @@ div#title {
 
 .zaloguj:hover
 {
-    font-weight:bold;
     text-decoration: underline;
+    font-weight:normal;
     cursor:pointer;
-    z-index:5;  
 }
 
 .display-field, 
@@ -778,8 +778,24 @@ Pracownica Informacja w miejscu Logowania i Rejestracji || Po zalogowaniu
 {
     font-family:Myriad Pro;
     font-size:14px; 
-    margin-left:3px;
     color:#f9ef8a ;  
+}
+
+.PracownicaUniwersalnaCzcionkaCiemna
+{
+    font-family:Myriad Pro;
+    font-size:14px; 
+    color:#c89d2f;
+    font-weight:normal;  
+}
+
+.PracownicaUniwersalnaCzcionkaCiemna:hover
+{
+    font-family:Myriad Pro;
+    font-size:14px; 
+    color:#c89d2f;
+    font-weight:normal;  
+    text-decoration:underline;
 }
 
 #PracownicaUniwersalnaWyloguj
@@ -790,3 +806,39 @@ Pracownica Informacja w miejscu Logowania i Rejestracji || Po zalogowaniu
     margin-top:-00px;
     
 }
+
+#PracownicaUniwersalnaCzcionkaTytul
+{
+    font-family:Myriad Pro;
+    font-size:16px; 
+    margin-left:3px;
+    margin-top:-5px;
+    margin-bottom:10px;
+    color:#c89d2f;  
+}
+
+/*
+    Styyle AccountMenager
+*/
+.Button_pracownice{
+    border: 1px solid #c89d2f;
+    background: #dbb245;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    min-height:30px;
+    font-size:1.2em;
+}
+
+.Button_pracownice:hover {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+.Button_pracownice:active {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+

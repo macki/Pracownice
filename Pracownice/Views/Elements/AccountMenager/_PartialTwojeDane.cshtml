@@ -1,0 +1,206 @@
+﻿@model Pracownice.Models.Pracownica
+
+<ul id="mSlider">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>@User.Identity.Name </legend>
+
+            @Html.HiddenFor(model => model.PracownicaID)
+            @Html.HiddenFor(Model => Model.Name)
+            @Html.HiddenFor(Model => Model.Uslugi)
+
+@*Telephone Number*@
+<div> 
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.TelephoneNumber)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.TelephoneNumber)
+                @Html.ValidationMessageFor(model => model.TelephoneNumber)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowTelephoneNumber)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowTelephoneNumber)
+</div>
+
+@*Skype Number*@
+<div> 
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.SkypeNumber)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.SkypeNumber)
+                @Html.ValidationMessageFor(model => model.SkypeNumber)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowSkypeNumber)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowSkypeNumber)
+</div>
+
+@*Email*@
+<div> 
+
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowEmail)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowEmail)
+</div>
+
+@*City and Region*@
+<div> 
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </div>
+
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Region)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Region)
+                @Html.ValidationMessageFor(model => model.Region)
+            </div>
+</div>
+
+@*Age*@
+<div> 
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Age)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
+            </div>
+
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowAge)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowAge)
+</div>
+
+@*Hair*@
+<div>
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Hair)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Hair)
+                @Html.ValidationMessageFor(model => model.Hair)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowHair)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowHair)
+</div>
+
+@*Eye*@
+<div>
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Eye)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Eye)
+                @Html.ValidationMessageFor(model => model.Eye)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowEye)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowEye)
+</div>
+
+@*Hair*@
+<div>
+
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Height)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Height)
+                @Html.ValidationMessageFor(model => model.Height)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowHeight)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowHeight)
+</div>
+
+@*Hair*@
+<div>
+
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.Boobs)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.EditorFor(model => model.Boobs)
+                @Html.ValidationMessageFor(model => model.Boobs)
+            </div>
+            <div id="editor-label-registerForm-accountMenagerCheckBox">
+                @Html.CheckBoxFor(m => m.ShowBoobs)
+                Pokaż 
+            </div>
+                @Html.ValidationMessageFor(m => m.ShowBoobs)
+</div>
+
+@*Working Hours*@
+<div>
+        @Html.HiddenFor(model => model.WorkingHours)
+</div>
+
+@*MainPhoto*@
+<div>
+            <div class="editor-label-accountMenager">
+                @Html.HiddenFor(model => model.MainPhotoUrl)
+            </div>
+</div>
+
+@*Header Description*@
+<div>
+
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.HeaderDescription)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.TextAreaFor(model => model.HeaderDescription, new { @class = "TextAreaPracownica" })
+                @Html.ValidationMessageFor(model => model.HeaderDescription)
+            </div>
+</div>
+
+@*Oferta Description*@
+<div>
+            <div class="editor-label-accountMenager">
+                @Html.LabelFor(model => model.OfertaDescription)
+            </div>
+            <div class="editor-field-accountMenager">
+                @Html.TextAreaFor(model => model.OfertaDescription, new { @class = "TextAreaPracownica" })
+                @Html.ValidationMessageFor(model => model.OfertaDescription)
+            </div>
+</div>
+
+            <p>
+                <input type="submit"  value="Save" class="Button_SaveTwojeDane" />
+            </p>
+
+        </fieldset> 
+}
+</ul>

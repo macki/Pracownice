@@ -1,0 +1,215 @@
+﻿
+.Menu_AccountMenager
+{
+    display:inline-block;
+    position:relative;
+    height:auto;  
+    margin-left:100px;
+}
+
+#menu {
+	width:180px;
+}
+
+#menu .zakladka 
+{
+	font-size:13px;
+	font-family:Myriad Pro;
+    text-transform:uppercase;
+	color:#f9ef8a;
+	padding:2px 12px 0px;
+	width:180px;
+	height:29px; 
+	margin:0px;
+	float:left; 
+	cursor: pointer;
+	max-width:180px;
+}
+
+#menu ul {
+	float:left;
+	width:180px;
+	margin-left:-22px;
+	margin-top:-10px;
+    max-width:180px;
+}
+#menu ul li {
+
+	list-style:none;
+	display:block;
+	height:14px;
+	width:100%;
+	padding:3px 2px;
+	margin-bottom:2px;
+	max-width:180px;
+}
+#menu ul li a {
+	display:block;
+	font-size:14px;
+	color:#dbb245;
+	text-decoration:none;
+}
+
+.display-field-accountMenager
+{  
+    max-width:250px;
+    width:50px;
+   color:#dbb245;
+}
+ 
+.editor-label-accountMenager {
+  width:50px;
+color:#dbb245;
+}
+
+.editor-label-accountMenagerExtended {
+  width:50px;
+  height:200px;
+color:#dbb245;
+}
+
+#editor-label-registerForm-accountMenagerCheckBox
+{
+    position:absolute;
+    display:inline;
+    margin-left:320px;
+    margin-top:-50px;
+    width:100px;
+    color: #dbb245;
+}
+
+.TextAreaPracownica
+{
+    width: 380px;
+    height:150px;
+    margin-bottom:10px;
+}
+
+.text-box {
+    width:80px;
+    position:relative;
+    display:block;
+    top:50px;
+    left:150px;
+} 
+
+.textarea #HeaderDescription {
+    width:300px;
+    position:relative;
+    display:block;
+    top:50px;
+    left:150px;
+    height:180px;
+}  
+
+input[type=text], input[type=password], select
+{
+	border: 1px solid #dbb245;
+	width: 120px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+     top:-30px;
+} 
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.Button_SaveTwojeDane {
+    border: 1px solid #c89d2f;
+    background: #dbb245;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+}
+
+.Button_SaveTwojeDane:hover {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+.Button_SaveTwojeDane:active {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+/*
+    Twoje Zdjecia
+*/
+
+
+#PracownicaUniwersalnaCzcionka2
+{
+    font-family:Myriad Pro;
+    font-size:14px; 
+    margin-left:3px;
+    color:#c89d2f ;  
+}
+
+
+.Button_SaveTwojeDane {
+    border: 1px solid #c89d2f;
+    background: #dbb245;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+}
+
+.Button_SaveTwojeDane:hover {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+.Button_SaveTwojeDane:active {
+    border: 1px solid #006;
+    background: #c89d2f;
+    cursor:pointer;
+}
+
+/* input file */
+
+.SI-FILES-STYLIZED label.cabinet
+{
+	width: 140px;
+	height: 80px;
+	background: url(Images/wybierzZdjecie.png) 0 0 no-repeat;
+    display:inline-block;
+    position:relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.SI-FILES-STYLIZED label.cabinet input.file
+{
+	position: relative;
+	height: 100%;
+	width: auto;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+	cursor:pointer;
+}
+
+.SI-FILES-STYLIZED label.cabinetGallery
+{
+	width: 160px;
+	height: 80px;
+	background: url(Images/wybierzNoweZdjecie.png) 0 0 no-repeat;
+    display:inline-block;
+    position:relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.SI-FILES-STYLIZED label.cabinetGallery input.file
+{
+	position: relative;
+	height: 100%;
+	width: auto;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+	cursor:pointer;
+}
+

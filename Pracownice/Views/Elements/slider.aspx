@@ -21,7 +21,7 @@
         Font-Size="Large" Height="285px" Focused="true"
         >
         <ClientSideEvents 
-            OnItemClick="ListBox1_ItemClick" />
+            OnItemClick="ListBox1_ItemClick"  />
     </obout:ListBox>
     
     <asp:SqlDataSource ID="sds1" runat="server" SelectCommand="SELECT * FROM [BazowaListaMiast]"
