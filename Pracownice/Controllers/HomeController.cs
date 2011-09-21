@@ -29,7 +29,7 @@ namespace Pracownice.Controllers
         }
 
         /// <summary>
-        /// Taking picture on the main page
+        /// Taking picture on the main page TODO::Wrzucic do DbHelpera
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
@@ -41,7 +41,7 @@ namespace Pracownice.Controllers
         }
 
         /// <summary>
-        /// Taking picture on the main page
+        /// Taking picture on the main page TODOLL wrzuci do DBHelper
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>

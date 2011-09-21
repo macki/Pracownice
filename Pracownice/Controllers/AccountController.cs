@@ -141,7 +141,6 @@ namespace Pracownice.Controllers
 
         //
         // GET: /Account/ChangePassword
-
         [Authorize]
         public ActionResult ChangePassword()
         {

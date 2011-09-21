@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data;
 using System.IO;
-using Pracownice.Content.DBHelper;
+using Pracownice.DBHelper;
 
 namespace Pracownice.Controllers
 {
@@ -18,7 +18,6 @@ namespace Pracownice.Controllers
         public ActionResult Index(int id)
         {
             var dziewczyna = storeDb.Pracownice.Find(id);
-
             return View(dziewczyna);
         }
 
@@ -33,22 +32,6 @@ namespace Pracownice.Controllers
             AttachViewData(dziewczyna);
 
             return PartialView(pola);
-        }
-
-        private void AttachViewData(Models.Pracownica dziewczyna)
-        {
-            //TODO change null
-            ViewData["Miasto"] = dziewczyna.City;
-            ViewData["Wiek"] = dziewczyna.Age;
-            ViewData["Wzrost"] = dziewczyna.Height;
-            ViewData["Biust"] = dziewczyna.Boobs;
-            ViewData["Telefon"] = dziewczyna.TelephoneNumber;
-            ViewData["Email"] = dziewczyna.Email;
-            ViewData["Skype"] = dziewczyna.SkypeNumber;
-            ViewData["Oczy"] = dziewczyna.Eye;
-            ViewData["Hair"] = dziewczyna.Hair;
-            ViewData["Godziny"] = dziewczyna.WorkingHours;
-            
         }
 
         // GET: /Pracownica/OfertaPolaDisplay
@@ -68,7 +51,6 @@ namespace Pracownice.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 CheckForUpdatedModel(pracownicaEdited);
-
                 var pracownica = storeDb.Pracownice.Where(m => m.Name == User.Identity.Name).Single();
 
                 return View(pracownica); 
@@ -89,25 +71,12 @@ namespace Pracownice.Controllers
                 var pracownica = dbHelper.GetPracownica(User.Identity.Name); 
 
                 // Verify that the user selected a file
-                if (file != null && file.ContentLength > 0)
+                if (Utils.UtilHelper.SaveFile(file,Server, pracownica, Utils.EnumHelper.photoDestination.mainPhoto))
                 {
-                    // extract only the fielname
-                    var fileName = pracownica.Name + "_mainPhoto" + ".jpg";
-
-                    var path = Path.Combine(Server.MapPath(MyConfig.mainPhotoUrl), fileName);
-
-                    try
-                    {
-                        file.SaveAs(path);
-                        dbHelper.ChangeMainPhoto(pracownica, MyConfig.mainPhotoUrlDatabase, fileName);
-                    }
-                    catch (Exception e)
-                    {
-                        return View("Error");
-                    }
+                    return View("AccountMenager", pracownica); 
                 }
 
-                return View("AccountMenager",pracownica);
+                return View("AccountMenager_ErrorFile", pracownica); 
             }
 
             return View("Index");
@@ -117,39 +86,23 @@ namespace Pracownice.Controllers
         [HttpPost]
         public ActionResult SaveGalleryImage(HttpPostedFileBase file)
         {
-            if(User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
                 var pracownica = dbHelper.GetPracownica(User.Identity.Name);
 
                 // Verify that the user selected a file
-                if (file != null && file.ContentLength > 0)
+                if (Utils.UtilHelper.SaveFile(file, Server, pracownica, Utils.EnumHelper.photoDestination.galleryPhoto))
                 {
-                    //SaveFile
-                    //// extract only the fielname
-                    ////var image = Utils.ImageHelper.CreateThumbnails(file.FileName);
-
-                    //var fileName = pracownica.Name + "_mainPhotoasdasd" + ".jpg";
-
-                    //var path = Path.Combine(Server.MapPath(MyConfig.mainPhotoUrl), fileName);
-
-                    //image.Save(path);
-                    
-                    try
-                    {
-                        //file.SaveAs(path);
-                        //dbHelper.ChangeMainPhoto(pracownica, MyConfig.mainPhotoUrlDatabase, fileName);
-                    }
-                    catch (Exception e)
-                    {
-                        return View("Error");
-                    }
+                    return View("AccountMenager", pracownica);
                 }
 
-                return View("AccountMenager", pracownica);
+                return View("AccountMenager_ErrorFile", pracownica);
             }
 
             return View("Index");
         }
+
+        #region helpers methods
 
         /// <summary>
         /// Check if model was changed by the user
@@ -171,5 +124,23 @@ namespace Pracownice.Controllers
                 } 
             }
         }
+
+        private void AttachViewData(Models.Pracownica dziewczyna)
+        {
+            //TODO change null
+            ViewData["Miasto"] = dziewczyna.City;
+            ViewData["Wiek"] = dziewczyna.Age;
+            ViewData["Wzrost"] = dziewczyna.Height;
+            ViewData["Biust"] = dziewczyna.Boobs;
+            ViewData["Telefon"] = dziewczyna.TelephoneNumber;
+            ViewData["Email"] = dziewczyna.Email;
+            ViewData["Skype"] = dziewczyna.SkypeNumber;
+            ViewData["Oczy"] = dziewczyna.Eye;
+            ViewData["Hair"] = dziewczyna.Hair;
+            ViewData["Godziny"] = dziewczyna.WorkingHours;
+
+        }
+
+        #endregion
     }
 }

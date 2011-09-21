@@ -11,8 +11,6 @@
         public string Url { get; set; }
         public string thumbUrl { set; get; }
 
-        public UploadedFileModel fileModel { get; set; }
-
         public virtual Pracownica pracownica { get; set; }
     }
 }
