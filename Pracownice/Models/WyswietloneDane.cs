@@ -11,6 +11,7 @@ namespace Pracownice.Models
 
         public string NameOfYellowField { get; set;}
         public int IdOfYellowField { get; set; }
+
     }
 }
 

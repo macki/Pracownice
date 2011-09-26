@@ -1,0 +1,23 @@
+﻿@model Pracownice.ViewModels.TwojeDaneModel
+
+@for(int i = 0; i < Model.Properties.Count; i++)
+{
+    if (Model.Properties.ElementAt(i) != null )
+    {
+        if (@Model.ShowStatus.ElementAt(i) == true)
+        {
+            <div class="ZoltePole">
+                <div class="NapisZoltePole">
+                    @Model.Names.ElementAt(i)
+                </div>
+
+                <div class= "DanePracownicy">
+                    @Model.Properties.ElementAt(i)
+                </div>
+            </div>
+        }
+    }
+}
+
+
+

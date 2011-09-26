@@ -1,4 +1,4 @@
-﻿    function showPhoto(url, changedIdPhoto, buttonOk, buttonBack, buttonChoseFile, fileLabel, buttonSetter) {
+﻿function showPhoto(url, changedIdPhoto, buttonOk, buttonBack, buttonChoseFile, fileLabel, buttonSetter) {
         var photo = document.getElementById(changedIdPhoto);
         photo.innerHTML = '<div id="PracownicaUniwersalnaCzcionka2"> Wybrano nowe zdjęcie profilowe, zatwierdź zmiany... </div>';
 

@@ -841,4 +841,25 @@ Pracownica Informacja w miejscu Logowania i Rejestracji || Po zalogowaniu
     cursor:pointer;
 }
 
+/* Yes/ No */
+.btn-wrap
+{
+    
+}
+
+.btn-wrap_item
+{
+    cursor:pointer;
+    font-size:large;
+    margin-right:5px;
+}
+
+.btn-wrap_item:hover
+{
+    cursor:pointer;
+    font-size:large;
+    text-decoration:underline;
+}
+
+
 

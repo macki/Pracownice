@@ -41,5 +41,26 @@ namespace Pracownice.DBHelper
         /// <param name="url"></param>
         /// <param name="filename"></param>
         void AddPhotoGallery(Pracownica pracownica, string url, string filename);
+
+        /// <summary>
+        /// Removing photo from gallery
+        /// </summary>
+        /// <param name="pracownica"></param>
+        void RemovePhotoGallery(Pracownica pracownica, int photoId);
+
+        /// <summary>
+        /// Gets photo files of given pracownica
+        /// </summary>
+        /// <param name="pracownicaId"></param>
+        /// <returns></returns>
+        IEnumerable<File> GetPhotoFiles(int pracownicaId);
+
+        /// <summary>
+        /// Sets additional enitites in updated model [HACK::]
+        /// </summary>
+        /// <param name="pracownicaEdited"></param>
+        /// <returns></returns>
+        Pracownica UpdateModel(Pracownica pracownicaEdited);
+
     }
 }

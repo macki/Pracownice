@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data;
 using System.IO;
 using Pracownice.DBHelper;
+using Pracownice.ViewModels;
 
 namespace Pracownice.Controllers
 {
@@ -21,17 +22,21 @@ namespace Pracownice.Controllers
             return View(dziewczyna);
         }
 
-        //
-        // GET: /Pracownica/OfertaPolaDisplay
-        [ChildActionOnly]
-        public ActionResult OfertaPolaDisply(int id)
+        // GET: /Pracownica/
+        [HttpGet]
+        public ActionResult Imie(String id)
         {
-            var pola = storeDb.Oferta.ToList();
-            var dziewczyna = storeDb.Pracownice.Find(id);
+            var dziewczyna = this.dbHelper.GetPracownica(id);
+            return View("Index",dziewczyna);
+        }
 
-            AttachViewData(dziewczyna);
+        // GET: /Pracownica/OfertaPolaDisplay
+        public ActionResult Dane(int id)
+        {
+            var pracownica = dbHelper.GetPracownica(id);
+            var twojeDaneModel = Utils.UtilHelper.InitializeTwojeDane(pracownica);
 
-            return PartialView(pola);
+            return PartialView(twojeDaneModel);
         }
 
         // GET: /Pracownica/OfertaPolaDisplay
@@ -43,16 +48,14 @@ namespace Pracownice.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Account Manager
         /// </summary>
-        /// HACK:: Could work better
-        public ActionResult AccountMenager(Pracownice.Models.Pracownica pracownicaEdited)
+        [HttpGet]
+        public ActionResult AccountManager(string id)
         {
             if (User.Identity.IsAuthenticated)
             {
-                CheckForUpdatedModel(pracownicaEdited);
-                var pracownica = storeDb.Pracownice.Where(m => m.Name == User.Identity.Name).Single();
-
+                var pracownica = this.dbHelper.GetPracownica(id);
                 return View(pracownica); 
             }
             else
@@ -61,6 +64,24 @@ namespace Pracownice.Controllers
             }
 
         }
+
+        [HttpPost]
+        public ActionResult EditPracownica(Pracownice.Models.Pracownica pracownicaEdited)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var pracownica = dbHelper.UpdateModel(pracownicaEdited);
+                //Utils.UtilHelper.CheckForUpdatedModel(pracownicaEdited);
+
+                return View("AccountManager", pracownica);
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        #region Twoje Zdjecia 
 
         // This action handles the form POST and the upload
         [HttpPost]
@@ -73,7 +94,8 @@ namespace Pracownice.Controllers
                 // Verify that the user selected a file
                 if (Utils.UtilHelper.SaveFile(file,Server, pracownica, Utils.EnumHelper.photoDestination.mainPhoto))
                 {
-                    return View("AccountMenager", pracownica); 
+                    dbHelper.Database.SaveChanges();
+                    return View("AccountManager", pracownica); 
                 }
 
                 return View("AccountMenager_ErrorFile", pracownica); 
@@ -90,57 +112,33 @@ namespace Pracownice.Controllers
             {
                 var pracownica = dbHelper.GetPracownica(User.Identity.Name);
 
-                // Verify that the user selected a file
-                if (Utils.UtilHelper.SaveFile(file, Server, pracownica, Utils.EnumHelper.photoDestination.galleryPhoto))
+                if (pracownica.Files.Count <= 5)
                 {
-                    return View("AccountMenager", pracownica);
+                    // Verify that the user selected a file
+                    if (Utils.UtilHelper.SaveFile(file, Server, pracownica, Utils.EnumHelper.photoDestination.galleryPhoto))
+                    {
+                        dbHelper.Database.SaveChanges();
+                        return View("AccountManager", pracownica);
+                    }
+
+                    return View("AccountManager_ErrorFile", pracownica);
                 }
 
                 return View("AccountMenager_ErrorFile", pracownica);
             }
-
             return View("Index");
         }
 
-        #region helpers methods
-
-        /// <summary>
-        /// Check if model was changed by the user
-        /// </summary>
-        /// <param name="pracownicaEdited"></param>
-        private void CheckForUpdatedModel(Models.Pracownica pracownicaEdited)
+        // Removing photo from gallery
+        [HttpPost]
+        public ActionResult RemoveGalleryImage(int pracownicaId, int photoId)
         {
-            if (pracownicaEdited.Uslugi != null && pracownicaEdited.Name != null)   // Pracownica was edited
-            {
-                try
-                {
-                    storeDb.Entry(pracownicaEdited).State = EntityState.Modified;
-                    storeDb.SaveChanges();
-                }
-                catch (DataException)
-                {
-                    //Log the error (add a variable name after DataException)
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-                } 
-            }
-        }
+            //dbHelper.RemovePhotoGallery(dbHelper.GetPracownica(pracownicaId), photoId);
 
-        private void AttachViewData(Models.Pracownica dziewczyna)
-        {
-            //TODO change null
-            ViewData["Miasto"] = dziewczyna.City;
-            ViewData["Wiek"] = dziewczyna.Age;
-            ViewData["Wzrost"] = dziewczyna.Height;
-            ViewData["Biust"] = dziewczyna.Boobs;
-            ViewData["Telefon"] = dziewczyna.TelephoneNumber;
-            ViewData["Email"] = dziewczyna.Email;
-            ViewData["Skype"] = dziewczyna.SkypeNumber;
-            ViewData["Oczy"] = dziewczyna.Eye;
-            ViewData["Hair"] = dziewczyna.Hair;
-            ViewData["Godziny"] = dziewczyna.WorkingHours;
-
+            return View();
         }
 
         #endregion
+
     }
 }

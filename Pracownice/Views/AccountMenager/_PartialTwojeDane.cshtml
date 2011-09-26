@@ -1,15 +1,15 @@
 ﻿@model Pracownice.Models.Pracownica
 
 <ul id="mSlider">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditPracownica", "Pracownica"))
     {
         @Html.ValidationSummary(true)
         <fieldset>
             <legend>@User.Identity.Name </legend>
 
             @Html.HiddenFor(model => model.PracownicaID)
-            @Html.HiddenFor(Model => Model.Name)
-            @Html.HiddenFor(Model => Model.Uslugi)
+            @Html.HiddenFor(model => model.Name)
+            @Html.HiddenFor(model => model.Uslugi)
 
 @*Telephone Number*@
 <div> 
@@ -21,10 +21,10 @@
                 @Html.ValidationMessageFor(model => model.TelephoneNumber)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowTelephoneNumber)
+                @Html.CheckBoxFor(model => model.ShowTelephoneNumber)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowTelephoneNumber)
+                @Html.ValidationMessageFor(model => model.ShowTelephoneNumber)
 </div>
 
 @*Skype Number*@
@@ -37,10 +37,10 @@
                 @Html.ValidationMessageFor(model => model.SkypeNumber)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowSkypeNumber)
+                @Html.CheckBoxFor(model => model.ShowSkypeNumber)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowSkypeNumber)
+                @Html.ValidationMessageFor(model => model.ShowSkypeNumber)
 </div>
 
 @*Email*@
@@ -54,10 +54,10 @@
                 @Html.ValidationMessageFor(model => model.Email)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowEmail)
+                @Html.CheckBoxFor(model => model.ShowEmail)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowEmail)
+                @Html.ValidationMessageFor(model => model.ShowEmail)
 </div>
 
 @*City and Region*@
@@ -90,10 +90,10 @@
             </div>
 
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowAge)
+                @Html.CheckBoxFor(model => model.ShowAge)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowAge)
+                @Html.ValidationMessageFor(model => model.ShowAge)
 </div>
 
 @*Hair*@
@@ -106,10 +106,10 @@
                 @Html.ValidationMessageFor(model => model.Hair)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowHair)
+                @Html.CheckBoxFor(model => model.ShowHair)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowHair)
+                @Html.ValidationMessageFor(model => model.ShowHair)
 </div>
 
 @*Eye*@
@@ -122,10 +122,10 @@
                 @Html.ValidationMessageFor(model => model.Eye)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowEye)
+                @Html.CheckBoxFor(model => model.ShowEye)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowEye)
+                @Html.ValidationMessageFor(model => model.ShowEye)
 </div>
 
 @*Hair*@
@@ -139,10 +139,10 @@
                 @Html.ValidationMessageFor(model => model.Height)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowHeight)
+                @Html.CheckBoxFor(model => model.ShowHeight)
                 Pokaż 
             </div>
-                @Html.ValidationMessageFor(m => m.ShowHeight)
+                @Html.ValidationMessageFor(model => model.ShowHeight)
 </div>
 
 @*Hair*@
@@ -156,7 +156,7 @@
                 @Html.ValidationMessageFor(model => model.Boobs)
             </div>
             <div id="editor-label-registerForm-accountMenagerCheckBox">
-                @Html.CheckBoxFor(m => m.ShowBoobs)
+                @Html.CheckBoxFor(model => model.ShowBoobs)
                 Pokaż 
             </div>
                 @Html.ValidationMessageFor(m => m.ShowBoobs)
@@ -170,7 +170,7 @@
 @*MainPhoto*@
 <div>
             <div class="editor-label-accountMenager">
-                @Html.HiddenFor(model => model.MainPhotoUrl)
+                @Html.HiddenFor(model => model.MainPhotoUrl)         
             </div>
 </div>
 
@@ -178,7 +178,7 @@
 <div>
 
             <div class="editor-label-accountMenager">
-                @Html.LabelFor(model => model.HeaderDescription)
+                @Html.LabelFor(model  => model.HeaderDescription)
             </div>
             <div class="editor-field-accountMenager">
                 @Html.TextAreaFor(model => model.HeaderDescription, new { @class = "TextAreaPracownica" })

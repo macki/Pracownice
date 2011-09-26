@@ -19,12 +19,14 @@
                 
             
                 <div id="PracownicaUniwersalnaCzcionka">
-                    Witaj, <br /> @User.Identity.Name
+                    <div>
+                        Witaj, <br /><a href="@Url.Action("Imie/" + @User.Identity.Name,"Pracownica")">@User.Identity.Name</a>
+                    </div>
                 </div>
-                
+  
                 <div id="PracownicaUniwersalnaCzcionka" style="margin-top:5px; margin-left:138px">
                                     
-                     <a href="@Url.Action("AccountMenager", "Pracownica")">Twoje Konto</a>
+                     <a href="@Url.Action("AccountManager/" + @User.Identity.Name , "Pracownica")">Twoje Konto</a>
                 </div>   
  
              </div>      
@@ -32,7 +34,6 @@
             else
             {
                 <div id="loginRegister">
-                     @*Html.ActionLink("Log On", "LogOn", "Account")*@
                      @Html.Partial("_LogOnPartial", new Pracownice.Models.LogOnModel())
                 </div>
             }

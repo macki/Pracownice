@@ -70,7 +70,7 @@
   <div class="ikonyGaleria">
     <ul class="gallery clearfix"> 
         <a href="@Url.Action("UslugiDisplay", "Pracownica", new { id = Model.PracownicaID });iframe=true&amp;width=80%&amp;height=90%" rel="prettyPhoto[iframe]"> <img src="../../Content/Images/icon_question.png" width=50 style="margin:5px"/></a>
-    
+
         <a href="DodajDOUlubionych">
             <img src="../../Content/Images/UlubioneIcon.png" alt="Alternate Text" /></a>
 
@@ -101,26 +101,11 @@
               {
                 <li>
                   <a href=@item.Url>
-                    <img src=@item.thumbUrl class="image0">
+                    <img src="@item.Url?height=120" class="image0">
                   </a>
                 </li>
               }          
-    @*            <li>
-                  <a href="../../Files/images/12.jpg">
-                    <img src="../../Files/miniaturki/1.jpg"  class="image1">
-                  </a>
-                </li>
-                <li>
-                  <a href="../../Files/images/12.jpg">
-                    <img src="../../Files/miniaturki/1.jpg"  longdesc="http://coffeescripter.com"  class="image2">
-                  </a>
-                </li>
-                <li>
-                  <a href="../../Files/images/12.jpg">
-                    <img src="../../Files/miniaturki/1.jpg" alt="This is a nice, and incredibly descriptive, description of the image 12.jpg" class="image3">
-                  </a>
-                </li>
-    *@
+
               </ul>
             </div>
           </div>
@@ -128,9 +113,7 @@
   </div>
 
   <div class="DanePracownica">
-     @{ 
-         Html.RenderAction("OfertaPolaDisply", "Pracownica");
-      }
+     @Html.Action("Dane", new { id = Model.PracownicaID })
   </div> 
 
 <div class="PracownicaTrescOferty">

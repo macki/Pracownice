@@ -28,24 +28,21 @@ namespace Pracownice.DBHelper
 
         public void ChangeMainPhoto(Pracownica pracownica, string url, string filename)
         {
-            var prEdit = GetPracownica(pracownica.PracownicaID);
-            prEdit.MainPhotoUrl = url + "/" + filename;
-
-            DbStore.ChangeTracker.DetectChanges();
+            pracownica.MainPhotoUrl = url + "/" + filename;
+            //DbStore.ChangeTracker.DetectChanges();
             DbStore.SaveChanges();    
         }
 
         public void AddPhotoGallery(Pracownica pracownica, string url, string filename)
         {
-            var prEdit = GetPracownica(pracownica.PracownicaID);
 
-            prEdit.Files.Add(new File { Url = url + "/" + filename,
+            pracownica.Files.Add(new File { Url = url + "/" + filename,
                                         thumbUrl = "",
                                         Description = "",
                                         PracownicaId = pracownica.PracownicaID
                             });
 
-            DbStore.ChangeTracker.DetectChanges();
+           // DbStore.ChangeTracker.DetectChanges();
             DbStore.SaveChanges();
         }
     }
