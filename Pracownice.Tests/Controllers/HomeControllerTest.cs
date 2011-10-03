@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pracownice;
 using Pracownice.Controllers;
+using Pracownice.Tests.Db;
 
 namespace Pracownice.Tests.Controllers
 {
@@ -15,6 +16,9 @@ namespace Pracownice.Tests.Controllers
         [TestMethod]
         public void Index()
         {
+            // Try to generate new database
+            System.Data.Entity.Database.SetInitializer(new SampleData());
+
             // Arrange
             HomeController controller = new HomeController();
 

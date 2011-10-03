@@ -12,7 +12,7 @@ namespace Pracownice.DBHelper
     public partial class DbHelper : IDbHelper
     {
         //Pracownice.Models.PracowniceEntities DbStore = new Models.PracowniceEntities();
-        static IDbContext DbStore = new PracowniceEntities();
+        static public IDbContext DbStore = new PracowniceEntities();
 
         #region Uniwersalne
         public int SaveChange()
