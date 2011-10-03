@@ -40,8 +40,8 @@ namespace Pracownice.Utils
         {
             try
             {
-                dbHelper.Database.Entry(pracownicaEdited).State = EntityState.Modified;
-                dbHelper.Database.SaveChanges();
+                dbHelper.Attach(pracownicaEdited);
+                dbHelper.SaveChange();
             }
             catch (DataException)
             {

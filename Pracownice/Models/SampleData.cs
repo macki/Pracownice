@@ -291,7 +291,14 @@ namespace Pracownice.Models
                 new BazowaListaUslug { nazwaUslugi="Wyjście do kina"},
                 new BazowaListaUslug { nazwaUslugi="Dziewczyna na imprezę"},
                 new BazowaListaUslug { nazwaUslugi="Rozmowa na Skypie"},
-                new BazowaListaUslug { nazwaUslugi="Śniadanie do łóżka"}
+                new BazowaListaUslug { nazwaUslugi="Śniadanie do łóżka"},
+                new BazowaListaUslug { nazwaUslugi="Strinptiz"},
+                new BazowaListaUslug { nazwaUslugi="Studniówka"},
+                new BazowaListaUslug { nazwaUslugi="Piątkowy wieczór"},
+                new BazowaListaUslug { nazwaUslugi="Zaproś mnie na imprezę"},
+                new BazowaListaUslug { nazwaUslugi="Śniadanie do łóżka"},
+                new BazowaListaUslug { nazwaUslugi="Wspólny wypad"}
+                //new BazowaListaUslug { nazwaUslugi="Skrzydłowa"}
             };
 
             bazoweUslugi.ForEach(a => context.BazoweUslugi.Add(a));

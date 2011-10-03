@@ -3,43 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using Pracownice.Models;
 using Pracownice.DBHelper;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Infrastructure;
 
 namespace Pracownice.DBHelper
 {
     public partial class DbHelper : IDbHelper
     {
-        Pracownice.Models.PracowniceEntities DbStore = new Models.PracowniceEntities();
+        //Pracownice.Models.PracowniceEntities DbStore = new Models.PracowniceEntities();
+        static IDbContext DbStore = new PracowniceEntities();
 
-        public PracowniceEntities Database
+        #region Uniwersalne
+        public int SaveChange()
         {
-            get { return DbStore; }
+            return DbStore.SaveChange();
         }
+
+        public T Attach<T>(T entity) where T : class
+        {
+            return DbStore.Attach(entity);
+        }
+
+        public T Add<T>(T entity) where T : class
+        {
+            return DbStore.Add(entity);
+        }
+
+        public T Delete<T>(T entity) where T : class
+        {
+            return DbStore.Delete(entity);
+        }
+        #endregion
+        #region Pracownica Entities
 
         public Pracownica GetPracownica(int pracownicaId)
         {
-            return DbStore.Pracownice.Single(p => p.PracownicaID == pracownicaId);
+            return DbStore.Pracownica.Single(p => p.PracownicaID == pracownicaId);
         }
 
         public Pracownica GetPracownica(string pracownicaName)
         {
-            return DbStore.Pracownice.Single(p => p.Name == pracownicaName);
+            return DbStore.Pracownica.Single(p => p.Name == pracownicaName);
         }
 
-        public void RemovePhotoGallery(Pracownica pracownica, int photoId)
+        public IEnumerable<Pracownica> GetPracownica(int numberOfRecords, int cityIndex)
         {
-            DbStore.Files.Remove((from p in pracownica.Files
-                                     where p.FileID == photoId
-                                     select p).Single());
+            //var city = DbStore.BazowaListaMiast.Single(m => m.BazowaListaMiastId == cityIndex);
+            var city = from p in DbStore.BazowaListaMiast
+                        where p.BazowaListaMiastId == cityIndex
+                        select p;
 
-            DbStore.SaveChanges();
+            if (city.Count() == 0)
+            {
+                return from p in DbStore.Pracownica select p;
+            }
 
-        }
-
-        public IEnumerable<File> GetPhotoFiles(int pracownicaId)
-        {
-            var pracownica = GetPracownica(pracownicaId);
-
-            return from p in pracownica.Files select p;
+            return DbStore.Pracownica
+                .Where(m => m.City == city.FirstOrDefault().NazwaMiasta)
+                .Take(numberOfRecords)
+                .ToList();        
         }
 
         public Pracownica UpdateModel(Pracownica pracownicaEdited)
@@ -50,11 +73,11 @@ namespace Pracownice.DBHelper
             pracownica.Boobs = pracownicaEdited.Boobs;
             pracownica.City = pracownicaEdited.City;
             pracownica.Email = pracownicaEdited.Email;
-            pracownica.Eye= pracownicaEdited.Eye;
+            pracownica.Eye = pracownicaEdited.Eye;
             pracownica.Hair = pracownicaEdited.Hair;
-            pracownica.HeaderDescription= pracownicaEdited.HeaderDescription;
-            pracownica.Height= pracownicaEdited.Height;
-            pracownica.OfertaDescription= pracownicaEdited.OfertaDescription;
+            pracownica.HeaderDescription = pracownicaEdited.HeaderDescription;
+            pracownica.Height = pracownicaEdited.Height;
+            pracownica.OfertaDescription = pracownicaEdited.OfertaDescription;
             pracownica.Region = pracownicaEdited.Region;
             pracownica.ShowAge = pracownicaEdited.ShowAge;
             pracownica.ShowBoobs = pracownicaEdited.ShowBoobs;
@@ -67,9 +90,37 @@ namespace Pracownice.DBHelper
             pracownica.TelephoneNumber = pracownicaEdited.TelephoneNumber;
             pracownica.SkypeNumber = pracownicaEdited.SkypeNumber;
 
-            DbStore.SaveChanges();
+            DbStore.SaveChange();
 
             return pracownica;
         }
+
+        #endregion
+        #region  Photo / PhotoGallery
+
+        public void RemovePhotoGallery(Pracownica pracownica, int photoId)
+        {
+            DbStore.Delete(from p in pracownica.Files
+                           where p.FileID == photoId
+                           select p).Single();
+
+            DbStore.SaveChange();
+
+        }
+
+        public IEnumerable<File> GetPhotoFiles(int pracownicaId)
+        {
+            var pracownica = GetPracownica(pracownicaId);
+
+            return from p in pracownica.Files select p;
+        }
+
+        #endregion
+        #region bazowe Uslugi
+        public IEnumerable<BazowaListaUslug> GetAllBazoweUslugi()
+        {
+            return from p in DbStore.BazoweUslugi select p;
+        }
+        #endregion
     }
 }

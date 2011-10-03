@@ -79,6 +79,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TwojeUslugiController.cs" />
     <Compile Include="DBHelper\DbHelper.cs" />
     <Compile Include="DBHelper\IDbHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Models\BazowaListaMiast.cs" />
     <Compile Include="Models\BazowaListaUslug.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\IDbContext.cs" />
     <Compile Include="Models\PracownicaUslugi.cs" />
     <Compile Include="Models\Usluga.cs" />
     <Compile Include="Models\WyswietloneDane.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Utils\MustBeTrueAttribute.cs" />
     <Compile Include="Utils\UtilHelper.cs" />
     <Compile Include="ViewModels\TwojeDaneModel.cs" />
+    <Compile Include="ViewModels\TwojeUslugiViewModel.cs" />
     <Compile Include="Views\Elements\ListBox.master.cs">
       <DependentUpon>ListBox.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,6 +191,7 @@
     <Content Include="Content\jQueryGallery\jquery.ad-gallery.pack.js" />
     <Content Include="Content\jQueryGallery\loader.gif" />
     <Content Include="Content\jQueryGallery\opa75.png" />
+    <Content Include="Content\Paginator\paging.js" />
     <Content Include="Content\prettyPhoto.css" />
     <Content Include="Content\removePhoto.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -360,6 +364,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Pracownica\AccountMenager_ErrorFile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AccountMenager\_TwojeUslugi.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pracownica\BazoweUslugi.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TwojeUslugi\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AccountMenager\_TwojeUslugi_Edit.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

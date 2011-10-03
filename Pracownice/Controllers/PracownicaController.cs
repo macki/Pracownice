@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using Pracownice.DBHelper;
 using Pracownice.ViewModels;
+using Pracownice.Models;
 
 namespace Pracownice.Controllers
 {
@@ -14,6 +15,8 @@ namespace Pracownice.Controllers
     {
         Pracownice.Models.PracowniceEntities storeDb = new Models.PracowniceEntities();
         DbHelper dbHelper = new DbHelper();
+
+        private List<BazowaListaUslug> UslugiList = new List<BazowaListaUslug>();
  
         // GET: /Pracownica/
         public ActionResult Index(int id)
@@ -47,6 +50,14 @@ namespace Pracownice.Controllers
             return PartialView(dziewczynaUslugi.ToList());
         }
 
+        // GET: /Pracownica/UslugiEdit
+        public ActionResult UslugiEdit(Pracownica pracownica)
+        {
+            var dziewczynaUslugi = pracownica.Uslugi;
+
+            return PartialView("../AccountMenager/_TwojeUslugi_Edit", dziewczynaUslugi);
+        }
+
         /// <summary>
         /// Account Manager
         /// </summary>
@@ -65,20 +76,25 @@ namespace Pracownice.Controllers
 
         }
 
+        // POST: /Pracownica/EditPracownica
         [HttpPost]
         public ActionResult EditPracownica(Pracownice.Models.Pracownica pracownicaEdited)
         {
             if (User.Identity.IsAuthenticated)
             {
                 var pracownica = dbHelper.UpdateModel(pracownicaEdited);
-                //Utils.UtilHelper.CheckForUpdatedModel(pracownicaEdited);
-
                 return View("AccountManager", pracownica);
             }
-            else
-            {
-                return View("Index");
-            }
+
+            return View("Index");
+        }
+
+        // GET: /Pracownica/GetUslugi
+        public ActionResult BazoweUslugi()
+        {
+           //TODO what is going on here?
+
+            return PartialView();
         }
 
         #region Twoje Zdjecia 
@@ -94,7 +110,7 @@ namespace Pracownice.Controllers
                 // Verify that the user selected a file
                 if (Utils.UtilHelper.SaveFile(file,Server, pracownica, Utils.EnumHelper.photoDestination.mainPhoto))
                 {
-                    dbHelper.Database.SaveChanges();
+                    dbHelper.SaveChange();
                     return View("AccountManager", pracownica); 
                 }
 
@@ -117,7 +133,7 @@ namespace Pracownice.Controllers
                     // Verify that the user selected a file
                     if (Utils.UtilHelper.SaveFile(file, Server, pracownica, Utils.EnumHelper.photoDestination.galleryPhoto))
                     {
-                        dbHelper.Database.SaveChanges();
+                        dbHelper.SaveChange();
                         return View("AccountManager", pracownica);
                     }
 
@@ -133,12 +149,11 @@ namespace Pracownice.Controllers
         [HttpPost]
         public ActionResult RemoveGalleryImage(int pracownicaId, int photoId)
         {
-            //dbHelper.RemovePhotoGallery(dbHelper.GetPracownica(pracownicaId), photoId);
-
+            //TODO removing photo from the server
+            dbHelper.RemovePhotoGallery(dbHelper.GetPracownica(pracownicaId), photoId);
             return View();
         }
 
         #endregion
-
     }
 }

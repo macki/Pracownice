@@ -1,0 +1,20 @@
+﻿@model SelectList
+
+@{
+    ViewBag.Title = "GetBazoweUslugi";
+}
+
+<div id="selectUslugi">@Html.Action("index", "TwojeUslugi")</div>
+
+<script type="text/javascript">
+
+$(function () {
+    $('#selectUslugi select').change(function () {
+        alert($(this).val());
+        $.post('@Url.Action("index", "TwojeUslugi")', { uslugaName: $(this).val() }, function (result) {
+
+        });
+    });
+});
+
+</script>

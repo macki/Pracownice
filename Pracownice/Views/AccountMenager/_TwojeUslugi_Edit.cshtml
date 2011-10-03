@@ -1,0 +1,55 @@
+﻿@model List<Pracownice.Models.Usluga>
+
+@{
+    ViewBag.Title = "_TwojeUslugi_Edit";
+}
+
+<form action="" method="get" enctype="application/x-www-form-urlencoded">
+    <table id="results">
+        @foreach (var item in Model)
+        {
+        <tr> 
+            <td>
+
+                <fieldset style="border: 1px groove #6f6f6f">
+                        <legend>@item.Name</legend>
+
+                        <div style="margin-left:4px">
+                            <span id="SpecialSpan"
+                                onmouseover="this.style.cursor='pointer'"
+                                onmouseout="this.style.cursor='default'"
+                                onclick="HideOrShowProfilePhoto('uslugaDescription + @item.UslugaID', 'pokazGaleria')";>
+                                <div class="PracownicaUniwersalnaCzcionkaCiemna" id="pokazGaleria" style="margin-left:-1px; margin-top:-15px">
+                                Edytuj Opis Uslugi
+                                </div>
+                            </span>
+                            <div class="editor-field-accountMenager" id="uslugaDescription + @item.UslugaID" style="visibility:hidden; height:0px">
+                                @Html.TextAreaFor(model => item.Description, new { @class = "TextAreaPracownica" })
+                                @Html.ValidationMessageFor(model => item.Description)
+                            </div>
+
+                            @*
+                            <div class="editor-field-accountMenager" style="margin-top:50px; margin-left:-155px">
+                                @Html.EditorFor(model => item.Prize)
+                                @Html.ValidationMessageFor(model => item.Prize)
+                            </div>
+                            *@
+
+                            <li>@item.Prize</li>
+                            <li>@item.Time</li> 
+                        </div>
+                </fieldset>
+            </td>
+        </tr>
+        }
+    </table>
+    <div id="pageNavPosition"></div>
+</form>
+
+<script type="text/javascript" src="../../Content/Paginator/paging.js"></script>
+ <script type="text/javascript">
+     var pager = new Pager('results', 4);
+     pager.init();
+     pager.showPageNav('pager', 'pageNavPosition');
+     pager.showPage(1);
+</script>

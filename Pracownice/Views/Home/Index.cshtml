@@ -1,4 +1,4 @@
-﻿@model List<Pracownice.Models.Pracownica>
+﻿@model IEnumerable<Pracownice.Models.Pracownica>
 
 @{
     ViewBag.Title = "Pracownice.pl";
@@ -6,39 +6,27 @@
 
  @foreach (var item in Model)
  {
-     // <li><a href="@Url.Action("Details", "Store",
-     //        new { id = album.AlbumId })">
-     // 
         <div class="RamkaFotka">
             <div class="Fotka"> 
-                 <img alt="@item.Name" src="@item.MainPhotoUrl" class="FotkaResize" />
-
+                <img alt="@item.Name" src="@item.MainPhotoUrl" class="FotkaResize" />
                 @{
                     string name = item.Name;
-
                     if (name.Length > 13)
                     {
                         name = name.Substring(0, 13);
                         name = name + "...";
-
-                    }
-                     
+                    }   
                  }
                  
                  <div class="FotkaImie">
                       <a href="@Url.Action("", "Pracownica", new { id = item.PracownicaID })"
                        style="color:#dbb245;
-                             
                               font-weight:normal;">
-
                          @name</a>   
                  </div>
-
                  <div class="FotkaMiasto">
                     @item.City
                  </div>
-
            </div>
         </div>
-     //</li>
     }

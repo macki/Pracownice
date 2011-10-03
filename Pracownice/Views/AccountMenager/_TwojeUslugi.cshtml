@@ -1,0 +1,26 @@
+﻿@model  Pracownice.Models.Pracownica
+
+@{
+    ViewBag.Title = "_TwojeUslugi";
+}
+
+<fieldset>
+    <legend>Twoje Usługi
+        <legend>
+            <span id="SpecialSpan"
+                    onmouseover="this.style.cursor='pointer'"
+                    onmouseout="this.style.cursor='default'"
+                    onclick="HideOrShowProfilePhoto('TwojeUslugiEdit', 'pokazGaleria')";>
+                    <div class="PracownicaUniwersalnaCzcionkaCiemna" id="pokazGaleria" style="margin-left:-1px">
+                    Pokaż
+                    </div>
+            </span>
+        </legend>
+    </legend>
+
+     <div id="TwojeUslugiEdit" style="margin-top:-5px; visibility:hidden; height:0px">
+        @Html.Action("UslugiEdit", "Pracownica", Model)
+        @*@Html.Action("BazoweUslugi", "Pracownica")*@
+    </div>
+
+</fieldset>

@@ -9,15 +9,11 @@ namespace Pracownice.Models
     {
         public int UslugaID { get; set; }
         public int PracownicaID { get; set; }
-
         public string Name { get; set; }
         public string Description { get; set; }
-
         public int Prize { get; set; }
         public string Time { get; set; }
-
         public bool Active { get; set; }
-        public bool Active2 { get; set; }
 
         public virtual Pracownica pracownicaUslugi { get; set; }
     }

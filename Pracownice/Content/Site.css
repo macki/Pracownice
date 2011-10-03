@@ -489,11 +489,13 @@ fieldset {
     min-width:500px
 }
 
+
 legend {
     font-size: 1.2em;
     font-weight: bold;
-      color:#dbb245; 
+    color:#dbb245; 
 }
+
 
 textarea {
     min-height: 75px;
@@ -524,20 +526,20 @@ input[type="submit"] {
 ----------------------------------------------------------*/
 
 table {
-    border: solid 1px #e8eef4;
+    border: solid 0px #e8eef4;
     border-collapse: collapse;
 }
 
 table td {
     padding: 5px;
-    border: solid 1px #e8eef4;
+    border: solid 0px #e8eef4;
 }
 
 table th {
     padding: 6px 5px;
     text-align: left;
     background-color: #e8eef4;
-    border: solid 1px #e8eef4;
+    border: solid 0px #e8eef4;
 }
 
 /* MISC  
@@ -861,5 +863,17 @@ Pracownica Informacja w miejscu Logowania i Rejestracji || Po zalogowaniu
     text-decoration:underline;
 }
 
-
-
+/* Uslugi Edit */
+.pg-normal
+ {
+    color:#c89d2f;
+    font-weight: normal;
+    text-decoration: none;    
+    cursor: pointer;    
+}
+.pg-selected {
+    color:#c89d2f;
+    font-weight: bold;        
+    text-decoration: underline;
+    cursor: pointer;
+}

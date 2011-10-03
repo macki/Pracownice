@@ -10,11 +10,21 @@ namespace Pracownice.DBHelper
 {
     interface IDbHelper
     {
+        #region Uniwersalne
+
+        int SaveChange();
         /// <summary>
-        /// Changes main photo
+        /// Edit 
         /// </summary>
-        /// <param name="pracownicaId"></param>
-        void ChangeMainPhoto(Pracownica pracownica, string url, string filename);
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        T Attach<T>(T entity) where T : class;
+        T Add<T>(T entity) where T : class;
+        T Delete<T>(T entity) where T : class;
+
+        #endregion
+        #region Pracownica
 
         /// <summary>
         /// Gets praconwica by Id
@@ -27,6 +37,30 @@ namespace Pracownice.DBHelper
         /// </summary>
         /// <param name="pracownicaId"></param>
         Pracownica GetPracownica(string pracownicaName);
+
+        /// <summary>
+        /// Gets number of Pracownica from specified city
+        /// </summary>
+        /// <param name="numberOfRecords"></param>
+        /// <param name="cityIndex"></param>
+        /// <returns></returns>
+        IEnumerable<Pracownica> GetPracownica(int numberOfRecords, int cityIndex);
+
+        /// <summary>
+        /// Sets additional enitites in updated model [HACK::]
+        /// </summary>
+        /// <param name="pracownicaEdited"></param>
+        /// <returns></returns>
+        Pracownica UpdateModel(Pracownica pracownicaEdited);
+
+        #endregion
+        #region Photo / PhotoGallery     
+        /// <summary>
+        /// Gets photo files of given pracownica
+        /// </summary>
+        /// <param name="pracownicaId"></param>
+        /// <returns></returns>
+        IEnumerable<File> GetPhotoFiles(int pracownicaId);
 
         /// <summary>
         /// Saves photo 
@@ -47,20 +81,20 @@ namespace Pracownice.DBHelper
         /// </summary>
         /// <param name="pracownica"></param>
         void RemovePhotoGallery(Pracownica pracownica, int photoId);
-
+        
         /// <summary>
-        /// Gets photo files of given pracownica
+        /// Changes main photo
         /// </summary>
         /// <param name="pracownicaId"></param>
-        /// <returns></returns>
-        IEnumerable<File> GetPhotoFiles(int pracownicaId);
-
+        void ChangeMainPhoto(Pracownica pracownica, string url, string filename);
+        #endregion
+        #region Bazowe Uslugo
         /// <summary>
-        /// Sets additional enitites in updated model [HACK::]
+        /// Gets all Bazowe Uslugi
         /// </summary>
-        /// <param name="pracownicaEdited"></param>
         /// <returns></returns>
-        Pracownica UpdateModel(Pracownica pracownicaEdited);
+        IEnumerable<BazowaListaUslug> GetAllBazoweUslugi();
+        #endregion
 
     }
 }

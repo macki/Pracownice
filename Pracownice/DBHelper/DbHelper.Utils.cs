@@ -29,8 +29,7 @@ namespace Pracownice.DBHelper
         public void ChangeMainPhoto(Pracownica pracownica, string url, string filename)
         {
             pracownica.MainPhotoUrl = url + "/" + filename;
-            //DbStore.ChangeTracker.DetectChanges();
-            DbStore.SaveChanges();    
+            DbStore.SaveChange();
         }
 
         public void AddPhotoGallery(Pracownica pracownica, string url, string filename)
@@ -42,8 +41,7 @@ namespace Pracownice.DBHelper
                                         PracownicaId = pracownica.PracownicaID
                             });
 
-           // DbStore.ChangeTracker.DetectChanges();
-            DbStore.SaveChanges();
+            DbStore.SaveChange();
         }
     }
 }

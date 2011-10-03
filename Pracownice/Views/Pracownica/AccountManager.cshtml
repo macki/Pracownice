@@ -29,15 +29,13 @@
                 @Html.Partial("../AccountMenager/_PartialTwojeZdjecia_Galeria", Model)
 		</ul>
 
-		<div class="zakladka" style="margin-bottom:35px">Twoje Dane
+		<div class="zakladka" style="margin-bottom:35px">Twoje Usługi
             <div class="menuGrafikaLinia">
                 <img src="../../Content/Images/profileScale.png" style ="margin-top:-20px; margin-left:-50px">
             </div>
         </div>   
 		<ul id="mSlider">
-			<li id="mSlider"><a href="#">Podmenu link 1</a></li>
-			<li id="mSlider"><a href="#">Podmenu link 2</a></li>
-			<li id="mSlider"><a href="#">Podmenu link 3</a></li>
+			 @Html.Partial("../AccountMenager/_TwojeUslugi", Model)
 		</ul>
 	</div>
 </div>
