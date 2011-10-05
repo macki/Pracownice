@@ -297,7 +297,7 @@ namespace Pracownice.Tests
 
                 foreach (var bU in bazoweUslugi)
                 {  
-                    item.Uslugi.Add( new Usluga { Name = bU.nazwaUslugi, Description = "Gotowy Text", Prize = 0, Time = null, Active = true, PracownicaID = item.PracownicaID });
+                    item.Uslugi.Add( new Usluga { Name = bU.nazwaUslugi, Description = "Gotowy Text", Prize = 0, Time = 0, Active = true, PracownicaID = item.PracownicaID });
                 }
             }
 

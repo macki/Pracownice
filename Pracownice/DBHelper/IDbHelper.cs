@@ -51,7 +51,14 @@ namespace Pracownice.DBHelper
         /// </summary>
         /// <param name="pracownicaEdited"></param>
         /// <returns></returns>
-        Pracownica UpdateModel(Pracownica pracownicaEdited);
+        Pracownica UpdatePracownica(Pracownica pracownicaEdited);
+
+        /// <summary>
+        /// Update Usluga entity [HACK:: SHIT]
+        /// </summary>
+        /// <param name="uslugaEdited"></param>
+        /// <returns></returns>
+        Usluga UpdateUsluga(Usluga uslugaEdited);
 
         #endregion
         #region Photo / PhotoGallery     

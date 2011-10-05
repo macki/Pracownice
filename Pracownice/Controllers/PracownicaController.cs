@@ -16,8 +16,6 @@ namespace Pracownice.Controllers
         Pracownice.Models.PracowniceEntities storeDb = new Models.PracowniceEntities();
         DbHelper dbHelper = new DbHelper();
 
-        private List<BazowaListaUslug> UslugiList = new List<BazowaListaUslug>();
- 
         // GET: /Pracownica/
         public ActionResult Index(int id)
         {
@@ -38,7 +36,6 @@ namespace Pracownice.Controllers
         {
             var pracownica = dbHelper.GetPracownica(id);
             var twojeDaneModel = Utils.UtilHelper.InitializeTwojeDane(pracownica);
-
             return PartialView(twojeDaneModel);
         }
 
@@ -46,16 +43,7 @@ namespace Pracownice.Controllers
         public ActionResult UslugiDisplay(int id)
         {
             var dziewczynaUslugi = storeDb.Pracownice.Find(id).Uslugi;
-
             return PartialView(dziewczynaUslugi.ToList());
-        }
-
-        // GET: /Pracownica/UslugiEdit
-        public ActionResult UslugiEdit(Pracownica pracownica)
-        {
-            var dziewczynaUslugi = pracownica.Uslugi;
-
-            return PartialView("../AccountMenager/_TwojeUslugi_Edit", dziewczynaUslugi);
         }
 
         /// <summary>
@@ -82,18 +70,38 @@ namespace Pracownice.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var pracownica = dbHelper.UpdateModel(pracownicaEdited);
+                var pracownica = dbHelper.UpdatePracownica(pracownicaEdited);
                 return View("AccountManager", pracownica);
             }
 
             return View("Index");
         }
 
+        // GET: /Pracownica/UslugiEdit
+        public ActionResult UslugiEdit(Usluga usluga)
+        {
+            return PartialView("../AccountMenager/_EditTwojeUslugi", usluga);
+        }
+
+        [HttpPost]
+        public ActionResult EditPracownicaTwojeUslugi(Usluga usluga)
+        {
+            try
+            {
+                dbHelper.UpdateUsluga(usluga);
+            }
+            catch (Exception e)
+            {
+                new Exception(e.Message);
+            }
+
+            return View("AccountManager", dbHelper.GetPracownica(usluga.PracownicaID));
+        }
+
         // GET: /Pracownica/GetUslugi
         public ActionResult BazoweUslugi()
         {
            //TODO what is going on here?
-
             return PartialView();
         }
 

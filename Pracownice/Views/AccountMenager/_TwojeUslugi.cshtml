@@ -18,9 +18,25 @@
         </legend>
     </legend>
 
-     <div id="TwojeUslugiEdit" style="margin-top:-5px; visibility:hidden; height:0px">
-        @Html.Action("UslugiEdit", "Pracownica", Model)
-        @*@Html.Action("BazoweUslugi", "Pracownica")*@
-    </div>
-
+    <table id="results">
+        <div id="TwojeUslugiEdit" style="margin-top:-5px; visibility:hidden; height:0px">
+            @foreach (var item in Model.Uslugi)
+            { 
+                <tr> 
+                    <td>
+                        @Html.Action("UslugiEdit", "Pracownica", item)
+                    </td>
+                </tr>
+            }
+        </div>
+    </table>
+    <div id="pageNavPosition"></div> 
 </fieldset>
+
+<script type="text/javascript" src="../../Content/Paginator/paging.js"></script>
+ <script type="text/javascript">
+     var pager = new Pager('results', 4);
+     pager.init();
+     pager.showPageNav('pager', 'pageNavPosition');
+     pager.showPage(1);
+</script>

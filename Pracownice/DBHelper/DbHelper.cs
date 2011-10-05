@@ -65,7 +65,7 @@ namespace Pracownice.DBHelper
                 .ToList();        
         }
 
-        public Pracownica UpdateModel(Pracownica pracownicaEdited)
+        public Pracownica UpdatePracownica(Pracownica pracownicaEdited)
         {
             var pracownica = GetPracownica(pracownicaEdited.PracownicaID);
 
@@ -93,6 +93,21 @@ namespace Pracownice.DBHelper
             DbStore.SaveChange();
 
             return pracownica;
+        }
+
+        public Usluga UpdateUsluga(Usluga uslugaEdited)
+        {
+            var usluga = DbStore.Usluga.Single( u => u.UslugaID == uslugaEdited.UslugaID);
+
+            usluga.Name = uslugaEdited.Name;
+            usluga.PracownicaID = uslugaEdited.PracownicaID;
+            usluga.Prize = uslugaEdited.Prize;
+            usluga.Time = uslugaEdited.Time;
+            usluga.Description = uslugaEdited.Description;
+            usluga.Active = false;
+            DbStore.SaveChange();
+
+            return usluga;
         }
 
         #endregion

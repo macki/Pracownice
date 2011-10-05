@@ -128,7 +128,7 @@ namespace Pracownice.Controllers
 
                 foreach (var item in storeDb.BazoweUslugi)
                 {
-                    pracownica.Uslugi.Add(new Usluga {Name=item.nazwaUslugi, Description = "Dodaj Swój Opis", Prize=0, Time = "czas uslugi", Active = true, PracownicaID = pracownica.PracownicaID} );
+                    pracownica.Uslugi.Add(new Usluga {Name=item.nazwaUslugi, Description = "Dodaj Swój Opis", Prize=0, Time = 0, Active = true, PracownicaID = pracownica.PracownicaID} );
                 }
 
                 storeDb.SaveChanges();

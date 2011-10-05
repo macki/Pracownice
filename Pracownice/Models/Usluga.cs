@@ -12,7 +12,7 @@ namespace Pracownice.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int Prize { get; set; }
-        public string Time { get; set; }
+        public int Time { get; set; }
         public bool Active { get; set; }
 
         public virtual Pracownica pracownicaUslugi { get; set; }
